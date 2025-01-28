@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>JoPic</title>
+        <style>
+            body{
+                background-color: #000000;
+                overflow: hidden;
+            }
+            div {
+                position: relative; /* Make the div the reference point for absolute positioning */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 50%;
+                width: 100%;
+                overflow: hidden; /* Prevent the text from going outside the div */
+                margin: 5px;
+            }
+            img{
+                height: 100%;
+                object-fit: contain;
+            }
+            .text-overlay {
+                position: absolute; /* Position the text on top of the image */
+                color: #dfdfdf; /* White text for visibility on dark images */
+                font-size: 30px; /* Adjust size of text */
+                font-weight: bold;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional: Add text shadow for better visibility */
+                z-index: 10; /* Ensure text is above the image */
+            }
+        </style>
+    </head>
+    <body>
+        <div id="all">
+            <img src="images/1/allPic.JPG">
+            <div class="text-overlay">All</div>
+        </div>
+        <div id="special">
+            <img src="images/1/specialPic.JPG">
+            <div class="text-overlay">Special</div>
+        </div>
+
+        <script>
+            const allPic=document.getElementById("all");
+            allPic.addEventListener('click',function(){
+                window.location.href = 'allPic.html';
+            });
+
+            const specialPic = document.getElementById("special");
+            specialPic.addEventListener('click', function(){
+                window.location.href = 'specialPic.html';
+            });
+        </script>
+    </body>
+</html>
