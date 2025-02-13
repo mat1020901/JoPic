@@ -16,9 +16,9 @@
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            height: 100vh;
+            height: 200vh;
             background-color: black;
-            overflow: hidden;
+            overflow-y: auto;
             flex-direction: column;
             transition: background-color 0.3s ease;
         }
@@ -32,7 +32,8 @@
             width: 80%;
             height: 5px;
             background-color: #333333;
-            position: relative;
+            position: fixed;
+            margin-bottom:5px;
             border-radius: 10px;
             overflow: hidden;
             top: 0px;
@@ -63,6 +64,25 @@
             object-fit: contain;
         }
 
+        #image-container2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height:auto;
+            position: relative;
+            top: 5px;
+            padding-bottom: 20px;
+            margin-top: 30px;
+        }
+
+        #image2 {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
         /* Pause symbol styling */
         #pause-symbol {
             position: absolute;
@@ -170,6 +190,11 @@
         </video>
     </div>
     <div id="pause-symbol">||</div> <!-- Pause symbol -->
+    <div id="image-container2">
+        <a href="index.html">
+            <img id="image2" src="images/1/Perh.JPG">
+        </a>
+    </div>
     <script>
         const imagesAndVideos = [
             './images/cl/cl-1.jpg',
