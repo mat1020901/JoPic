@@ -33,6 +33,7 @@
             height: 5px;
             background-color: #333333;
             position: fixed;
+            margin-top: 5px;
             margin-bottom:5px;
             border-radius: 10px;
             overflow: hidden;
@@ -55,6 +56,7 @@
             height: calc(100vh - 80px);
             position: relative;
             top: 5px;
+            padding-top: 5px;
             padding-bottom: 20px;
             margin-top:5px;
         }
@@ -111,80 +113,6 @@
             display: none; /* Initially hide the video */
         }
 
-        /*cursor animation*/
-        .circle {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            transform: translate(-50%, -50%);
-        }
-
-        /* Outer ring */
-        .circle::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            border: 2px solid rgba(240, 240, 240, 0.6); /* Soft ring outline */
-            border-radius: 50%;
-            background: rgba(240, 240, 240, 0.2); /* Light glow */
-            box-shadow: 0 0 20px rgba(240, 240, 240, 0.8); /* Glowing effect */
-            filter: blur(1.5px); /* Slight blur for smoothness */
-            transform: translate(-50%, -50%) scale(0);
-            animation: outer-ring 0.7s ease-out forwards;
-        }
-
-        /* Inner ring */
-        .circle::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border: 2px solid rgba(240, 240, 240, 0.5); /* Visible ring line */
-            border-radius: 50%;
-            box-shadow: 0 0 15px rgba(240, 240, 240, 0.7);
-            filter: blur(1px);
-            transform: translate(-50%, -50%);
-            animation: inner-ring 0.7s ease-out forwards;
-        }
-
-        @keyframes outer-ring {
-            0% {
-                transform: translate(-50%, -50%) scale(0);
-                opacity: 1;
-                box-shadow: 0 0 10px rgba(240, 240, 240, 0.6);
-            }
-
-            100% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 0;
-                box-shadow: 0 0 30px rgba(240, 240, 240, 0);
-            }
-        }
-
-        @keyframes inner-ring {
-            0% {
-                width: 0;
-                height: 0;
-                opacity: 1;
-                box-shadow: 0 0 8px rgba(240, 240, 240, 0.5);
-            }
-            50% {
-                width: 100%;
-                height: 100%;
-                box-shadow: 0 0 20px rgba(240, 240, 240, 0.3);
-            }
-            100% {
-                width: 100%;
-                height: 100%;
-                opacity: 0;
-                box-shadow: 0 0 25px rgba(240, 240, 240, 0);
-            }
-        }
     </style>
 </head>
 <body id="animation-container">
@@ -619,38 +547,6 @@
         // Initialize the slideshow
         resetProgressBar();
 
-        //cursor animation
-        let isAnimating = false; // Flag to track if an animation is already running
-
-        document.addEventListener('click', function(event) {
-            if (!isAnimating) {
-                isAnimating = true;
-                createCircle(event.clientX, event.clientY);
-            }
-        });
-
-        document.addEventListener('touchstart', function(event) {
-            if (!isAnimating) {
-                isAnimating = true;
-                event.preventDefault(); // Prevent default touch behavior
-                const touch = event.touches[0];
-                createCircle(touch.clientX, touch.clientY);
-            }
-        });
-
-        function createCircle(x, y) {
-            const circle = document.createElement('div');
-            circle.classList.add('circle');
-            circle.style.left = `${x}px`;
-            circle.style.top = `${y}px`;
-            document.body.appendChild(circle); // Append to body
-
-            // Remove the circle after the animation ends
-            circle.addEventListener('animationend', function() {
-                circle.remove();
-                isAnimating = false; // Reset the flag
-            });
-        }
     </script>
     
 </body>
