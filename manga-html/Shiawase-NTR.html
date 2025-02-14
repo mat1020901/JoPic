@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoPic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 200vh;
+            background-color: black;
+            overflow-y: auto;
+            flex-direction: column;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Semi-transparent background when paused */
+        body.paused {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        #progress-bar-container {
+            width: 80%;
+            height: 5px;
+            background-color: #333333;
+            position: fixed;
+            margin-top: 5px;
+            margin-bottom:5px;
+            border-radius: 10px;
+            overflow: hidden;
+            top: 0px;
+        }
+
+        #progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #bbbbbb;
+            border-radius: 10px;
+        }
+
+        #image-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: calc(100vh - 80px);
+            position: relative;
+            top: 5px;
+            padding-top: 5px;
+            padding-bottom: 20px;
+            margin-top:5px;
+        }
+
+        #image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        #image-container2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height:auto;
+            position: relative;
+            top: 5px;
+            padding-bottom: 20px;
+            margin-top: 30px;
+        }
+
+        #image2 {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        #image-container2 a img {
+            transition: transform 0.5s ease-in-out;
+        }
+
+        #image-container2 a:active img {
+            transform: scale(0.9); /* Shrink when clicked */
+        }
+
+        /* Animation for enlarging */
+        @keyframes shrink-enlarge {
+            0% { transform: scale(1); } /* Normal */
+            50% { transform: scale(0.6); } /* Shrink */
+            100% { transform: scale(1.1); } /* Enlarge */
+        }
+
+        #image-container2 a img.clicked {
+            animation: shrink-enlarge 0.3s ease-in-out;
+        }
+
+        .manga-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Space between images */
+            justify-content: center; /* Center images */
+            padding: 5px;
+        }
+
+        .manga-container a {
+            text-decoration: none;
+            max-width: 100%;
+        }
+
+        .manga-container img {
+            width: 90px; /* Adjust size */
+            height: 160px;
+            object-fit: cover; /* Keep aspect ratio */
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .manga-container img:hover {
+            transform: scale(1.1); /* Hover effect */
+        }
+
+        /* Pause symbol styling */
+        #pause-symbol {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            display: none; /* Initially hidden */
+        }
+
+        /* Video styling */
+        #video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none; /* Initially hide the video */
+        }
+
+    </style>
+</head>
+<body id="animation-container">
+    <div id="progress-bar-container">
+        <div id="progress-bar"></div>
+    </div>
+    <div id="image-container">
+        <img id="image" src="../images/manga/Baito-gambaru/img-1.jpg" alt="Image 1">
+    </div>
+    <div id="pause-symbol">||</div> <!-- Pause symbol -->
+    <div id="image-container2">
+        <a href="../index.html">
+            <img id="image2" src="../images/1/Perh.JPG">
+        </a>
+    </div>
+    <div class="manga-container">
+        <a href="../manga-html/Baito-gambaru.html">
+            <img src="../images/manga/Baito-gambaru/img-1.jpg">
+        </a>
+        <a href="../manga-html/Quetzalcoatl-no-nichijou.html">
+            <img src="../images/manga/Quetzalcoatl-no-nichijou/img-1.jpg">
+        </a>
+    </div>
+    
+    <script>
+        const images = [
+            '../images/manga/Shiawase-NTR/img-1.jpg',
+            '../images/manga/Shiawase-NTR/img-2.jpg',
+            '../images/manga/Shiawase-NTR/img-3.jpg',
+            '../images/manga/Shiawase-NTR/img-4.jpg',
+            '../images/manga/Shiawase-NTR/img-5.jpg',
+            '../images/manga/Shiawase-NTR/img-6.jpg',
+            '../images/manga/Shiawase-NTR/img-7.jpg',
+            '../images/manga/Shiawase-NTR/img-8.jpg',
+            '../images/manga/Shiawase-NTR/img-9.jpg',
+            '../images/manga/Shiawase-NTR/img-10.jpg',
+            '../images/manga/Shiawase-NTR/img-11.jpg',
+            '../images/manga/Shiawase-NTR/img-12.jpg',
+            '../images/manga/Shiawase-NTR/img-13.jpg',
+            '../images/manga/Shiawase-NTR/img-14.jpg',
+            '../images/manga/Shiawase-NTR/img-15.jpg',
+            '../images/manga/Shiawase-NTR/img-16.jpg',
+            '../images/manga/Shiawase-NTR/img-17.jpg',
+            '../images/manga/Shiawase-NTR/img-18.jpg',
+
+        ];
+
+        let currentIndex = 0;
+        let progressBar = document.getElementById("progress-bar");
+        const imageElement = document.getElementById("image");
+        const pauseSymbol = document.getElementById("pause-symbol");
+        const bodyElement = document.body;
+
+        imageElement.src = images[currentIndex];
+
+        let progressInterval;
+        let currentProgress = 0;
+        let paused = false;
+
+        function updateProgressBar() {
+            if (paused) return;
+
+            currentProgress = 0;
+            progressBar.style.width = "0%";
+
+            if (progressInterval) {
+                clearInterval(progressInterval);
+            }
+
+            progressInterval = setInterval(() => {
+                currentProgress += 1;
+                progressBar.style.width = currentProgress + "%";
+                if (currentProgress >= 100) {
+                    clearInterval(progressInterval);
+                    if (!paused) changeImage();
+                }
+            }, 45); // 4.5seconds then switch to next img
+        }
+
+        function preloadImage(src, callback) {
+            const img = new Image();
+            img.src = src;
+            img.onload = callback;
+        }
+
+        function changeImage() {
+            if (paused) return;
+
+            currentIndex = (currentIndex + 1) % images.length;
+            const nextSrc = images[currentIndex];
+
+            preloadImage(nextSrc, () => {
+                imageElement.src = nextSrc;
+            });
+
+            resetProgressBar();
+        }
+
+        function previousImage() {
+            if (paused) return;
+
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            const prevSrc = images[currentIndex];
+
+            preloadImage(prevSrc, () => {
+                imageElement.src = prevSrc;
+            });
+
+            resetProgressBar();
+        }
+
+        function resetProgressBar() {
+            setTimeout(() => {
+                updateProgressBar();
+            }, 100);
+        }
+
+        function handleTouch(event) {
+            const screenWidth = window.innerWidth;
+            const touchX = event.touches[0].clientX;
+
+            if (touchX < screenWidth / 3) {
+                previousImage();
+            } else if (touchX > screenWidth * 0.6) {
+                changeImage();
+            } else {
+                paused = !paused;
+                if (!paused) {
+                    updateProgressBar();
+                }
+                togglePauseSymbol();
+            }
+        }
+
+        function togglePauseSymbol() {
+            const progressBarContainer = document.getElementById("progress-bar-container");
+
+            if (paused) {
+                pauseSymbol.style.display = "block";
+                bodyElement.classList.add("paused");
+                progressBarContainer.style.display = "none";
+            } else {
+                pauseSymbol.style.display = "none";
+                bodyElement.classList.remove("paused");
+                progressBarContainer.style.display = "block";
+            }
+        }
+
+        // Event listeners
+        document.addEventListener("touchstart", handleTouch);
+
+        // Initialize the slideshow
+        resetProgressBar();
+
+    </script>
+    
+</body>
+</html>
