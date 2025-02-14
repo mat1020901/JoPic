@@ -105,6 +105,31 @@
             animation: shrink-enlarge 0.3s ease-in-out;
         }
 
+        .manga-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Space between images */
+            justify-content: center; /* Center images */
+            padding: 5px;
+        }
+
+        .manga-container a {
+            text-decoration: none;
+            max-width: 100%;
+        }
+
+        .manga-container img {
+            width: 90px; /* Adjust size */
+            height: 160px;
+            object-fit: cover; /* Keep aspect ratio */
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .manga-container img:hover {
+            transform: scale(1.1); /* Hover effect */
+        }
+        
         /* Pause symbol styling */
         #pause-symbol {
             position: absolute;
@@ -141,6 +166,14 @@
     <div id="image-container2">
         <a href="other.html">
             <img id="image2" src="images/1/Other.JPG">
+        </a>
+    </div>
+    <div class="manga-container">
+        <a href="manga-html/Baito-gambaru.html">
+            <img src="./images/manga/Baito-gambaru/img-1.jpg" alt="Image 1">
+        </a>
+        <a href="manga-html/Quetzalcoatl-no-nichijou.html">
+            <img src="./images/manga/Quetzalcoatl-no-nichijou/img-1.jpg" alt="Image 2">
         </a>
     </div>
     <script>
