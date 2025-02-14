@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoPic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 200vh;
+            background-color: black;
+            overflow-y: auto;
+            flex-direction: column;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Semi-transparent background when paused */
+        body.paused {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        #progress-bar-container {
+            width: 80%;
+            height: 5px;
+            background-color: #333333;
+            position: fixed;
+            margin-top: 5px;
+            margin-bottom:5px;
+            border-radius: 10px;
+            overflow: hidden;
+            top: 0px;
+        }
+
+        #progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #bbbbbb;
+            border-radius: 10px;
+        }
+
+        #image-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: calc(100vh - 80px);
+            position: relative;
+            top: 5px;
+            padding-top: 5px;
+            padding-bottom: 20px;
+            margin-top:5px;
+        }
+
+        #image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        #image-container2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height:auto;
+            position: relative;
+            top: 5px;
+            padding-bottom: 20px;
+            margin-top: 30px;
+        }
+
+        #image2 {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        #image-container2 a img {
+            transition: transform 0.5s ease-in-out;
+        }
+
+        #image-container2 a:active img {
+            transform: scale(0.9); /* Shrink when clicked */
+        }
+
+        /* Animation for enlarging */
+        @keyframes shrink-enlarge {
+            0% { transform: scale(1); } /* Normal */
+            50% { transform: scale(0.6); } /* Shrink */
+            100% { transform: scale(1.1); } /* Enlarge */
+        }
+
+        #image-container2 a img.clicked {
+            animation: shrink-enlarge 0.3s ease-in-out;
+        }
+
+        .manga-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Space between images */
+            justify-content: center; /* Center images */
+            padding: 5px;
+        }
+
+        .manga-container a {
+            text-decoration: none;
+            max-width: 100%;
+        }
+
+        .manga-container img {
+            width: 90px; /* Adjust size */
+            height: 160px;
+            object-fit: cover; /* Keep aspect ratio */
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .manga-container img:hover {
+            transform: scale(1.1); /* Hover effect */
+        }
+        
+        /* Pause symbol styling */
+        #pause-symbol {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            display: none; /* Initially hidden */
+        }
+
+        /* Video styling */
+        #video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none; /* Initially hide the video */
+        }
+
+    </style>
+</head>
+<body id="animation-container">
+    <div id="progress-bar-container">
+        <div id="progress-bar"></div>
+    </div>
+    <div id="image-container">
+        <img id="image" src="images/cheryl/Cheryl-1.JPEG" alt="Image 1">
+        <video id="video" autoplay playsinline muted>
+            <source src="./images/wincy/Wincy-1.MP4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div id="pause-symbol">||</div> <!-- Pause symbol -->
+    <div class="manga-container">
+        <a href="index.html">
+            <img src="images/1/other.JPG" alt="Image 1">
+        </a>
+        <a href="manga-html/Baito-gambaru.html">
+            <img src="./images/manga/Baito-gambaru/img-1.jpg" alt="Image 1">
+        </a>
+        <a href="manga-html/Cos-lover.html">
+            <img src="./images/manga/Cos-lover/img-1.jpg" alt="Image 2">
+        </a>
+        <a href="manga-html/Gokinjyo-NTR.html">
+            <img src="./images/manga/Gokinjyo-NTR/img-1.jpg" alt="Image 3">
+        </a>
+        <a href="manga-html/Kurutta-sekai-nobara.html">
+            <img src="./images/manga/Kurutta-sekai-nobara/img-1.jpg" alt="Image 4">
+        </a>
+        <a href="manga-html/Quetzalcoatl-no-nichijou.html">
+            <img src="./images/manga/Quetzalcoatl-no-nichijou/img-1.jpg" alt="Image 5">
+        </a>
+        <a href="manga-html/Shiawase-NTR.html">
+            <img src="./images/manga/Shiawase-NTR/img-1.jpg" alt="Image 6">
+        </a>
+        <a href="manga-html/Taisetsu-na-futari.html">
+            <img src="./images/manga/Taisetsu-na-futari/img-1.jpg" alt="Image 7">
+        </a>
+    </div>
+    <script>
+        const imagesAndVideos = [
+            'images/cheryl/Cheryl-1.JPEG',
+            'images/cheryl/Cheryl-2.JPEG',
+            'images/cheryl/Cheryl-3.JPEG',
+            'images/cheryl/Cheryl-4.JPEG',
+            'images/cheryl/Cheryl-5.JPEG',
+            'images/cheryl/Cheryl-6.JPEG',
+            'images/cheryl/Cheryl-7.JPEG',
+            'images/cheryl/Cheryl-8.JPEG',
+            //'images/cheryl/Cheryl-9.JPEG',
+            'images/cheryl/Cheryl-10.JPEG',
+            'images/cheryl/Cheryl-11.JPEG',
+            'images/cheryl/Cheryl-12.JPEG',
+            'images/cheryl/Cheryl-13.JPEG',
+            'images/cheryl/Cheryl-14.JPEG',
+            'images/cheryl/Cheryl-15.JPEG',
+            'images/cheryl/Cheryl-16.JPEG',
+            //'images/cheryl/Cheryl-17.JPEG',
+            //'images/cheryl/Cheryl-18.JPEG',
+            //'images/cheryl/Cheryl-19.JPEG',
+            //'images/cheryl/Cheryl-20.JPEG',
+            'images/cheryl/Cheryl-21.JPEG',
+            'images/cheryl/Cheryl-22.JPEG',
+            'images/cheryl/Cheryl-23.JPEG',
+            'images/cheryl/Cheryl-24.JPEG',
+            'images/cheryl/Cheryl-25.jpg',
+            './images/cheryl/Cheryl-26.jpg',
+            './images/cheryl/Cheryl-27.jpg',
+            './images/cheryl/Cheryl-28.jpg',
+            './images/cheryl/Cheryl-29.jpg',
+            './images/cheryl/Cheryl-30.jpg',
+            './images/cheryl/Cheryl-31.jpg',
+            './images/cheryl/Cheryl-32.jpg',
+            './images/cheryl/Cheryl-33.jpg',
+            './images/cheryl/Cheryl-34.JPG',
+            './images/cheryl/Cheryl-35.jpg',
+            './images/cheryl/Cheryl-36.JPG',
+            './images/cheryl/Cheryl-37.JPG',
+            './images/cheryl/Cheryl-38.JPG',
+            //'./images/cheryl/Cheryl-39.JPG',
+            //'./images/cheryl/Cheryl-40.jpg',
+            //'./images/cheryl/Cheryl-41.jpg',
+
+            './images/doris/doris-1.jpg',
+            './images/doris/doris-2.jpg',
+            './images/doris/doris-3.jpg',
+            './images/doris/doris-4.jpg',
+            './images/doris/doris-5.jpg',
+            './images/doris/doris-6.jpg',
+            './images/doris/doris-7.jpg',
+            './images/doris/doris-8.jpg',
+            './images/doris/doris-9.jpg',
+            './images/doris/doris-10.jpg',
+            './images/doris/doris-11.jpg',
+            './images/doris/doris-12.jpg',
+            './images/doris/doris-13.jpg',
+            './images/doris/doris-14.jpg',
+            './images/doris/doris-15.jpg',
+            './images/doris/doris-16.jpg',
+            './images/doris/doris-17.jpg',
+            './images/doris/doris-18.jpg',
+            './images/doris/doris-19.jpg',
+            './images/doris/doris-20.jpg',
+            './images/doris/doris-21.jpg',
+            './images/doris/doris-22.jpg',
+            './images/doris/doris-23.jpg',
+            './images/doris/doris-24.jpg',
+            './images/doris/doris-25.jpg',
+            './images/doris/doris-26.jpg',
+            './images/doris/doris-27.jpg',
+            './images/doris/doris-28.jpg',
+            './images/doris/doris-29.jpg',
+            './images/doris/doris-30.jpg',
+            './images/doris/doris-31.jpg',
+            './images/doris/doris-32.jpg',
+            './images/doris/doris-33.jpg',
+            './images/doris/doris-34.jpg',
+            './images/doris/doris-35.jpg',
+            './images/doris/doris-36.jpg',
+            './images/doris/doris-37.jpg',
+            './images/doris/doris-38.jpg',
+
+            './images/evi/evi-1.JPEG',
+            './images/evi/evi-2.JPEG',
+            './images/evi/evi-3.JPEG',
+            './images/evi/evi-4.JPEG',
+            './images/evi/evi-5.JPEG',
+            './images/evi/evi-6.JPEG',
+            './images/evi/evi-7.JPEG',
+            './images/evi/evi-8.JPEG',
+            './images/evi/evi-9.JPEG',
+            './images/evi/evi-10.JPEG',
+            './images/evi/evi-11.JPG',
+            './images/evi/evi-12.JPEG',
+            './images/evi/evi-13.JPEG',
+            './images/evi/evi-14.JPEG',
+            './images/evi/evi-15.JPEG',
+            './images/evi/evi-16.JPEG',
+            './images/evi/evi-17.JPEG',
+            './images/evi/evi-18.JPEG',
+            './images/evi/evi-19.JPEG',
+            './images/evi/evi-20.JPEG',
+            './images/evi/evi-21.JPEG',
+            './images/evi/evi-22.JPEG',
+            './images/evi/evi-23.JPEG',
+            './images/evi/evi-24.JPEG',
+            './images/evi/evi-25.JPEG',
+            './images/evi/evi-26.JPEG',
+            './images/evi/evi-27.JPEG',
+            './images/evi/evi-28.JPEG',
+            './images/evi/evi-29.JPEG',
+            './images/evi/evi-30.JPEG',
+            './images/evi/evi-31.JPEG',
+            './images/evi/evi-32.JPEG',
+            './images/evi/evi-33.JPEG',
+            './images/evi/evi-34.JPEG',
+            './images/evi/evi-35.JPEG',
+            './images/evi/evi-36.JPEG',
+            './images/evi/evi-37.JPEG',
+            './images/evi/evi-38.JPEG',
+            './images/evi/evi-39.JPEG',
+            './images/evi/evi-40.JPEG',
+            './images/evi/evi-41.JPEG',
+            './images/evi/evi-42.JPEG',
+            './images/evi/evi-43.JPEG',
+            './images/evi/evi-44.JPEG',
+            './images/evi/evi-45.JPEG',
+            './images/evi/evi-46.JPEG',
+            './images/evi/evi-47.JPEG',
+            './images/evi/evi-48.JPEG',
+            './images/evi/evi-49.JPEG',
+            './images/evi/evi-50.JPEG',
+            './images/evi/evi-51.JPEG',
+            './images/evi/evi-52.JPEG',
+            './images/evi/evi-53.JPEG',
+            './images/evi/evi-54.JPEG',
+            './images/evi/evi-55.JPEG',
+            './images/evi/evi-56.JPEG',
+            './images/evi/evi-57.JPEG',
+            './images/evi/evi-58.JPEG',
+            './images/evi/evi-59.JPEG',
+            './images/evi/evi-60.JPEG',
+            './images/evi/evi-61.JPEG',
+            './images/evi/evi-62.JPEG',
+            './images/evi/evi-63.JPEG',
+            './images/evi/evi-64.JPEG',
+            './images/evi/evi-65.JPEG',
+            './images/evi/evi-66.JPEG',
+            './images/evi/evi-67.JPEG',
+            './images/evi/evi-68.JPEG',
+            './images/evi/evi-69.JPEG',
+            './images/evi/evi-70.JPEG',
+            './images/evi/evi-71.JPEG',
+            './images/evi/evi-72.JPEG',
+            './images/evi/evi-73.JPEG',
+            './images/evi/evi-74.JPEG',
+            './images/evi/evi-75.JPEG',
+            './images/evi/evi-76.JPEG',
+            './images/evi/evi-77.JPEG',
+            './images/evi/evi-78.JPEG',
+            './images/evi/evi-79.JPEG',
+            './images/evi/evi-80.JPEG',
+            './images/evi/evi-81.JPEG',
+            './images/evi/evi-82.JPEG',
+            './images/evi/evi-83.JPEG',
+            './images/evi/evi-84.JPEG',
+            './images/evi/evi-85.JPEG',
+            './images/evi/evi-86.JPEG',
+            './images/evi/evi-87.JPEG',
+            './images/evi/evi-88.JPEG',
+            './images/evi/evi-89.JPEG',
+            './images/evi/evi-90.JPEG',
+            './images/evi/evi-91.JPEG',
+            './images/evi/evi-92.JPEG',
+            './images/evi/evi-93.JPEG',
+            './images/evi/evi-94.JPEG',
+            './images/evi/evi-95.JPEG',
+            './images/evi/evi-96.JPEG',
+            './images/evi/evi-97.jpg',
+            './images/evi/evi-98.jpg',
+            './images/evi/evi-99.jpg',
+            './images/evi/evi-100.jpg',
+            './images/evi/evi-101.jpg',
+            './images/evi/evi-102.jpg',
+            './images/evi/evi-103.jpg',
+            
+            './images/hx/hx-1.JPG',
+            './images/hx/hx-2.JPG',
+            './images/hx/hx-3.JPG',
+            './images/hx/hx-4.JPG',
+            './images/hx/hx-5.JPG',
+            './images/hx/hx-6.JPG',
+            './images/hx/hx-7.JPG',
+            './images/hx/hx-8.JPG',
+            './images/hx/hx-9.JPG',
+            './images/hx/hx-10.JPG',
+            './images/hx/hx-11.jpg',
+            
+            './images/li-an/li-an-1.jpeg',
+            './images/li-an/li-an-2.jpeg',
+            './images/li-an/li-an-3.jpeg',
+            './images/li-an/li-an-4.jpeg',
+            './images/li-an/li-an-5.jpeg',
+            './images/li-an/li-an-6.jpeg',
+            './images/li-an/li-an-7.jpeg',
+            './images/li-an/li-an-8.jpg',
+            './images/li-an/li-an-9.jpg',
+            './images/li-an/li-an-10.jpg',
+            './images/li-an/li-an-11.jpg',
+            './images/li-an/li-an-12.JPG',
+            './images/li-an/li-an-13.JPG',
+
+            './images/others/ks-4.jpeg',
+            './images/others/ks-5.jpeg',
+            './images/others/ks-10.jpeg',
+            './images/others/ldh-1.mp4', //le dahye
+            './images/others/rh-1.JPG',
+            './images/others/sk-1.jpeg',
+            './images/others/sk-2.jpeg',
+            './images/others/sk-3.jpeg',
+            './images/others/sk-4.jpeg',
+            './images/others/sk-5.jpeg',
+            
+            './images/wl/wl-1.JPEG',
+            './images/wl/wl-2.JPEG',
+            './images/wl/wl-3.JPEG',
+            './images/wl/wl-4.JPEG',
+            './images/wl/wl-5.JPEG',
+            './images/wl/wl-6.JPEG',
+            './images/wl/wl-7.jpg',
+            './images/wl/wl-8.jpg',
+            './images/wl/wl-9.jpg',
+            './images/wl/wl-10.jpg',
+            './images/wl/wl-11.jpg',
+            './images/wl/wl-12.jpg',
+            './images/wl/wl-13.jpg',
+            './images/wl/wl-14.jpg',
+            './images/wl/wl-15.jpg',
+            './images/wl/wl-16.jpg',
+
+
+            
+        ];
+    
+        // Shuffle function to randomize the array
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+            }
+        }
+    
+        // Shuffle the array on page load
+        shuffleArray(imagesAndVideos);
+    
+        let currentIndex = 0;
+        let progressBar = document.getElementById("progress-bar");
+        const imageElement = document.getElementById("image");
+        const videoElement = document.getElementById("video");
+        const pauseSymbol = document.getElementById("pause-symbol");
+        const bodyElement = document.body;
+    
+        const firstImage = imagesAndVideos[currentIndex]; // Randomized first image
+        imageElement.src = firstImage;
+
+        let progressInterval;
+        let currentProgress = 0;
+        let paused = false;
+    
+        function updateProgressBar() {
+            if (paused) return;
+    
+            currentProgress = 0;
+            progressBar.style.width = "0%";
+    
+            if (progressInterval) {
+                clearInterval(progressInterval);
+            }
+    
+            if (isVideo(imagesAndVideos[currentIndex])) {
+                imageElement.style.display = 'none';
+                videoElement.style.display = 'block';
+                videoElement.play();
+                videoElement.onended = () => {
+                    if (!paused) {
+                        changeImage();
+                    }
+                };
+                return;
+            }
+    
+            progressInterval = setInterval(() => {
+                currentProgress += 1;
+                progressBar.style.width = currentProgress + "%";
+                if (currentProgress >= 100) {
+                    clearInterval(progressInterval);
+                    if (!paused) changeImage();
+                }
+            }, 30);
+        }
+    
+        function preloadImage(src, callback) {
+            const img = new Image();
+            img.src = src;
+            img.onload = callback;
+        }
+    
+        function changeImage() {
+            if (paused) return;
+    
+            if (videoElement.style.display === 'block') {
+                videoElement.pause();
+                videoElement.currentTime = 0;
+            }
+    
+            currentIndex = (currentIndex + 1) % imagesAndVideos.length;
+            const nextSrc = imagesAndVideos[currentIndex];
+    
+            preloadImage(nextSrc, () => {
+                if (isVideo(nextSrc)) {
+                    imageElement.style.display = 'none';
+                    videoElement.style.display = 'block';
+                    videoElement.src = nextSrc;
+                    videoElement.play();
+                } else {
+                    imageElement.style.display = 'block';
+                    videoElement.style.display = 'none';
+                    imageElement.src = nextSrc;
+                }
+            });
+    
+            resetProgressBar();
+        }
+    
+        function previousImage() {
+            if (paused) return;
+    
+            if (videoElement.style.display === 'block') {
+                videoElement.pause();
+                videoElement.currentTime = 0;
+            }
+    
+            currentIndex = (currentIndex - 1 + imagesAndVideos.length) % imagesAndVideos.length;
+            const prevSrc = imagesAndVideos[currentIndex];
+    
+            preloadImage(prevSrc, () => {
+                if (isVideo(prevSrc)) {
+                    imageElement.style.display = 'none';
+                    videoElement.style.display = 'block';
+                    videoElement.src = prevSrc;
+                    videoElement.play();
+                } else {
+                    imageElement.style.display = 'block';
+                    videoElement.style.display = 'none';
+                    imageElement.src = prevSrc;
+                }
+            });
+    
+            resetProgressBar();
+        }
+    
+        function resetProgressBar() {
+            setTimeout(() => {
+                updateProgressBar();
+            }, 100);
+        }
+    
+        function handleTouch(event) {
+            const screenWidth = window.innerWidth;
+            const touchX = event.touches[0].clientX;
+    
+            if (touchX < screenWidth / 3) {
+                previousImage();
+            } else if (touchX > screenWidth * 0.6) {
+                changeImage();
+            } else {
+                paused = !paused;
+                if (!paused) {
+                    updateProgressBar();
+                }
+                togglePauseSymbol();
+            }
+        }
+    
+        function togglePauseSymbol() {
+            const progressBarContainer = document.getElementById("progress-bar-container");
+    
+            if (paused) {
+                pauseSymbol.style.display = "block";
+                bodyElement.classList.add("paused");
+                progressBarContainer.style.display = "none";
+    
+                if (videoElement.style.display === 'block') {
+                    videoElement.loop = true;
+                }
+            } else {
+                pauseSymbol.style.display = "none";
+                bodyElement.classList.remove("paused");
+                progressBarContainer.style.display = "block";
+    
+                videoElement.loop = false;
+            }
+        }
+    
+        function isVideo(src) {
+            return src.endsWith('.mp4') || src.endsWith('.mov') || src.endsWith('.avi');
+        }
+    
+        // Event listeners
+        document.addEventListener("touchstart", handleTouch);
+    
+        // Initialize the slideshow
+        resetProgressBar();
+
+    </script>
+    
+</body>
+</html>
