@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoPic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 200vh;
+            background-color: black;
+            overflow-y: auto;
+            flex-direction: column;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Semi-transparent background when paused */
+        body.paused {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        #progress-bar-container {
+            width: 80%;
+            height: 5px;
+            background-color: #333333;
+            position: fixed;
+            margin-top: 5px;
+            margin-bottom:5px;
+            border-radius: 10px;
+            overflow: hidden;
+            top: 0px;
+        }
+
+        #progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #bbbbbb;
+            border-radius: 10px;
+        }
+
+        #image-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: calc(100vh - 80px);
+            position: relative;
+            top: 5px;
+            padding-top: 5px;
+            padding-bottom: 20px;
+            margin-top:5px;
+        }
+
+        #image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        #image-container2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height:auto;
+            position: relative;
+            top: 5px;
+            padding-bottom: 20px;
+            margin-top: 30px;
+        }
+
+        #image2 {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        #image-container2 a img {
+            transition: transform 0.5s ease-in-out;
+        }
+
+        #image-container2 a:active img {
+            transform: scale(0.9); /* Shrink when clicked */
+        }
+
+        /* Animation for enlarging */
+        @keyframes shrink-enlarge {
+            0% { transform: scale(1); } /* Normal */
+            50% { transform: scale(0.6); } /* Shrink */
+            100% { transform: scale(1.1); } /* Enlarge */
+        }
+
+        #image-container2 a img.clicked {
+            animation: shrink-enlarge 0.3s ease-in-out;
+        }
+
+        .manga-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Space between images */
+            justify-content: center; /* Center images */
+            padding: 5px;
+        }
+
+        .manga-container a {
+            text-decoration: none;
+            max-width: 100%;
+        }
+
+        .manga-container img {
+            width: 90px; /* Adjust size */
+            height: 160px;
+            object-fit: cover; /* Keep aspect ratio */
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .manga-container img:hover {
+            transform: scale(1.1); /* Hover effect */
+        }
+
+        /* Pause symbol styling */
+        #pause-symbol {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            display: none; /* Initially hidden */
+        }
+
+        /* Video styling */
+        #video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none; /* Initially hide the video */
+        }
+
+    </style>
+</head>
+<body id="animation-container">
+    <div id="progress-bar-container">
+        <div id="progress-bar"></div>
+    </div>
+    <div id="image-container">
+        <img id="image" src="../images/manga/Baito-gambaru/img-1.jpg" alt="Image 1">
+    </div>
+    <div id="pause-symbol">||</div> <!-- Pause symbol -->
+    <div class="manga-container">
+        <a href="../Perh.html">
+            <img src="../images/1/Perh.JPG" alt="Image 1">
+        </a>
+        <a href="../manga-html/manga.html">
+            <img src="../images/1/mangaPic.jpg" alt="Image 2">
+        </a>
+        <a href="../manga-html/Baito-gambaru.html">
+            <img src="../images/manga/Baito-gambaru/img-1.jpg" alt="Image 3">
+        </a>
+        <a href="../manga-html/Quetzalcoatl-no-nichijou.html">
+            <img src="../images/manga/Quetzalcoatl-no-nichijou/img-1.jpg" alt="Image 4">
+        </a>
+        <a href="../manga-html/Kurutta-sekai-nobara.html">
+            <img src="../images/manga/Kurutta-sekai-nobara/img-1.jpg" alt="Image 5">
+        </a>
+        <a href="../manga-html/Jujutsu-shoujo.html">
+            <img src="../images/manga/Jujutsu-shoujo/img-1.jpg" alt="Image 6">
+        </a>
+        <a href="../manga-html/Nagatama-renshuu.html">
+            <img src="../images/manga/Nagatama-renshuu/img-1.jpg" alt="Image 7">
+        </a>
+        <a href="../manga-html/komi-san.html">
+            <img src="../images/manga/komi-san/img-1.jpg" alt="Image 8">
+        </a>
+        <a href="../manga-html/Seito-to-nakayoku.html">
+            <img src="../images/manga/Seito-to-nakayoku/img-1.jpg" alt="Image 9">
+        </a>
+        <a href="../manga-html/Gokinjyo-NTR.html">
+            <img src="../images/manga/Gokinjyo-NTR/img-1.jpg" alt="Image 10">
+        </a>
+        <a href="../manga-html/Shiawase-NTR.html">
+            <img src="../images/manga/Shiawase-NTR/img-1.jpg" alt="Image 11">
+        </a>
+        <a href="../manga-html/Taisetsu-na-futari.html">
+            <img src="../images/manga/Taisetsu-na-futari/img-1.jpg" alt="Image 12">
+        </a>
+        <a href="../manga-html/Cos-lover.html">
+            <img src="../images/manga/Cos-lover/img-1.jpg" alt="Image 13">
+        </a>
+        <a href="../manga-html/Gachihame-SEX-shidou.html">
+            <img src="../images/manga/Gachihame-SEX-shidou/img-1.jpg" alt="Image 14">
+        </a>
+        <a href="../manga-html/Seiso-kanojo.html">
+            <img src="../images/manga/Seiso-kanojo/img-1.jpg" alt="Image 15">
+        </a>
+    </div>
+    
+    <script>
+        const images = [
+            '../images/manga/Baito-gambaru/img-1.jpg',
+            '../images/manga/Baito-gambaru/img-2.jpg',
+            '../images/manga/Baito-gambaru/img-3.jpg',
+            '../images/manga/Baito-gambaru/img-4.jpg',
+            '../images/manga/Baito-gambaru/img-5.jpg',
+            '../images/manga/Baito-gambaru/img-6.jpg',
+            '../images/manga/Baito-gambaru/img-7.jpg',
+            '../images/manga/Baito-gambaru/img-8.jpg',
+            '../images/manga/Baito-gambaru/img-9.jpg',
+            '../images/manga/Baito-gambaru/img-10.jpg',
+            '../images/manga/Baito-gambaru/img-11.jpg',
+            '../images/manga/Baito-gambaru/img-12.jpg',
+            '../images/manga/Baito-gambaru/img-13.jpg',
+            '../images/manga/Baito-gambaru/img-14.jpg',
+            '../images/manga/Baito-gambaru/img-15.jpg',
+            '../images/manga/Baito-gambaru/img-16.jpg',
+            '../images/manga/Baito-gambaru/img-17.jpg',
+            '../images/manga/Baito-gambaru/img-18.jpg',
+            '../images/manga/Baito-gambaru/img-19.jpg',
+            '../images/manga/Baito-gambaru/img-20.jpg',
+            '../images/manga/Baito-gambaru/img-21.jpg',
+            '../images/manga/Baito-gambaru/img-22.jpg',
+            '../images/manga/Baito-gambaru/img-23.jpg',
+            '../images/manga/Baito-gambaru/img-24.jpg',
+            '../images/manga/Baito-gambaru/img-25.jpg',
+            '../images/manga/Baito-gambaru/img-26.jpg',
+            '../images/manga/Baito-gambaru/img-27.jpg',
+            '../images/manga/Baito-gambaru/img-28.jpg',
+            '../images/manga/Baito-gambaru/img-29.jpg',
+            '../images/manga/Baito-gambaru/img-30.jpg',
+            '../images/manga/Baito-gambaru/img-31.jpg',
+            '../images/manga/Baito-gambaru/img-32.jpg',
+            '../images/manga/Baito-gambaru/img-33.jpg',
+            '../images/manga/Baito-gambaru/img-34.jpg',
+            '../images/manga/Baito-gambaru/img-35.jpg',
+            '../images/manga/Baito-gambaru/img-36.jpg',
+            '../images/manga/Baito-gambaru/img-37.jpg',
+
+        ];
+
+        const images2 = [
+           '../images/manga/Cos-lover/img-1.jpg',
+            '../images/manga/Cos-lover/img-2.jpg',
+            '../images/manga/Cos-lover/img-3.jpg',
+            '../images/manga/Cos-lover/img-4.jpg',
+            '../images/manga/Cos-lover/img-5.jpg',
+            '../images/manga/Cos-lover/img-6.jpg',
+            '../images/manga/Cos-lover/img-7.jpg',
+            '../images/manga/Cos-lover/img-8.jpg',
+            '../images/manga/Cos-lover/img-9.jpg',
+            '../images/manga/Cos-lover/img-10.jpg',
+            '../images/manga/Cos-lover/img-11.jpg',
+            '../images/manga/Cos-lover/img-12.jpg',
+            '../images/manga/Cos-lover/img-13.jpg',
+            '../images/manga/Cos-lover/img-14.jpg',
+            '../images/manga/Cos-lover/img-15.jpg',
+            '../images/manga/Cos-lover/img-16.jpg',
+            '../images/manga/Cos-lover/img-17.jpg',
+            '../images/manga/Cos-lover/img-18.jpg',
+        ];
+
+        const images3 = [
+            '../images/manga/Gachihame-SEX-shidou/img-1.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-2.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-3.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-4.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-5.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-6.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-7.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-8.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-9.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-10.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-11.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-12.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-13.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-14.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-15.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-16.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-17.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-18.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-19.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-20.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-21.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-22.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-23.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-24.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-25.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-26.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-27.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-28.jpg',
+            '../images/manga/Gachihame-SEX-shidou/img-29.jpg',
+        ];
+
+        const images4 = [
+            '../images/manga/Gokinjyo-NTR/img-1.jpg',
+            '../images/manga/Gokinjyo-NTR/img-2.jpg',
+            '../images/manga/Gokinjyo-NTR/img-3.jpg',
+            '../images/manga/Gokinjyo-NTR/img-4.jpg',
+            '../images/manga/Gokinjyo-NTR/img-5.jpg',
+            '../images/manga/Gokinjyo-NTR/img-6.jpg',
+            '../images/manga/Gokinjyo-NTR/img-7.jpg',
+            '../images/manga/Gokinjyo-NTR/img-8.jpg',
+            '../images/manga/Gokinjyo-NTR/img-9.jpg',
+            '../images/manga/Gokinjyo-NTR/img-10.jpg',
+            '../images/manga/Gokinjyo-NTR/img-11.jpg',
+            '../images/manga/Gokinjyo-NTR/img-12.jpg',
+            '../images/manga/Gokinjyo-NTR/img-13.jpg',
+            '../images/manga/Gokinjyo-NTR/img-14.jpg',
+            '../images/manga/Gokinjyo-NTR/img-15.jpg',
+            '../images/manga/Gokinjyo-NTR/img-16.jpg',
+            '../images/manga/Gokinjyo-NTR/img-17.jpg',
+            '../images/manga/Gokinjyo-NTR/img-18.jpg',
+            '../images/manga/Gokinjyo-NTR/img-19.jpg',
+            '../images/manga/Gokinjyo-NTR/img-20.jpg',
+        ];
+
+        const images5 = [
+            '../images/manga/Jujutsu-shoujo/img-1.jpg',
+            '../images/manga/Jujutsu-shoujo/img-2.jpg',
+            '../images/manga/Jujutsu-shoujo/img-3.jpg',
+            '../images/manga/Jujutsu-shoujo/img-4.jpg',
+            '../images/manga/Jujutsu-shoujo/img-5.jpg',
+            '../images/manga/Jujutsu-shoujo/img-6.jpg',
+            '../images/manga/Jujutsu-shoujo/img-7.jpg',
+            '../images/manga/Jujutsu-shoujo/img-8.jpg',
+            '../images/manga/Jujutsu-shoujo/img-9.jpg',
+            '../images/manga/Jujutsu-shoujo/img-10.jpg',
+            '../images/manga/Jujutsu-shoujo/img-11.jpg',
+            '../images/manga/Jujutsu-shoujo/img-12.jpg',
+            '../images/manga/Jujutsu-shoujo/img-13.jpg',
+            '../images/manga/Jujutsu-shoujo/img-14.jpg',
+            '../images/manga/Jujutsu-shoujo/img-15.jpg',
+            '../images/manga/Jujutsu-shoujo/img-16.jpg',
+            '../images/manga/Jujutsu-shoujo/img-17.jpg',
+            '../images/manga/Jujutsu-shoujo/img-18.jpg',
+            '../images/manga/Jujutsu-shoujo/img-19.jpg',
+            '../images/manga/Jujutsu-shoujo/img-20.jpg',
+            '../images/manga/Jujutsu-shoujo/img-21.jpg',
+            '../images/manga/Jujutsu-shoujo/img-22.jpg',
+            '../images/manga/Jujutsu-shoujo/img-23.jpg',
+            '../images/manga/Jujutsu-shoujo/img-24.jpg',
+            '../images/manga/Jujutsu-shoujo/img-25.jpg',
+            '../images/manga/Jujutsu-shoujo/img-26.jpg',
+            '../images/manga/Jujutsu-shoujo/img-27.jpg',
+            '../images/manga/Jujutsu-shoujo/img-28.jpg',
+            '../images/manga/Jujutsu-shoujo/img-29.jpg',
+            '../images/manga/Jujutsu-shoujo/img-30.jpg',
+            '../images/manga/Jujutsu-shoujo/img-31.jpg',
+            '../images/manga/Jujutsu-shoujo/img-32.jpg',
+            '../images/manga/Jujutsu-shoujo/img-33.jpg',
+            '../images/manga/Jujutsu-shoujo/img-34.jpg',
+            '../images/manga/Jujutsu-shoujo/img-35.jpg',
+            '../images/manga/Jujutsu-shoujo/img-36.jpg',
+            '../images/manga/Jujutsu-shoujo/img-37.jpg',
+            '../images/manga/Jujutsu-shoujo/img-38.jpg',
+            '../images/manga/Jujutsu-shoujo/img-39.jpg',
+            '../images/manga/Jujutsu-shoujo/img-40.jpg',
+            '../images/manga/Jujutsu-shoujo/img-41.jpg',
+            '../images/manga/Jujutsu-shoujo/img-42.jpg',
+            '../images/manga/Jujutsu-shoujo/img-43.jpg',
+            '../images/manga/Jujutsu-shoujo/img-44.jpg',
+            '../images/manga/Jujutsu-shoujo/img-45.jpg',
+            '../images/manga/Jujutsu-shoujo/img-46.jpg',
+            '../images/manga/Jujutsu-shoujo/img-47.jpg',
+            '../images/manga/Jujutsu-shoujo/img-48.jpg',
+            '../images/manga/Jujutsu-shoujo/img-49.jpg',
+            '../images/manga/Jujutsu-shoujo/img-50.jpg',
+            '../images/manga/Jujutsu-shoujo/img-51.jpg',
+            '../images/manga/Jujutsu-shoujo/img-52.jpg',
+            '../images/manga/Jujutsu-shoujo/img-53.jpg',
+        ];
+
+        const images6 = [
+            '../images/manga/komi-san/img-1.jpg',
+            '../images/manga/komi-san/img-2.jpg',
+            '../images/manga/komi-san/img-3.jpg',
+            '../images/manga/komi-san/img-4.jpg',
+            '../images/manga/komi-san/img-5.jpg',
+            '../images/manga/komi-san/img-6.jpg',
+            '../images/manga/komi-san/img-7.jpg',
+            '../images/manga/komi-san/img-8.jpg',
+            '../images/manga/komi-san/img-9.jpg',
+            '../images/manga/komi-san/img-10.jpg',
+            '../images/manga/komi-san/img-11.jpg',
+            '../images/manga/komi-san/img-12.jpg',
+            '../images/manga/komi-san/img-13.jpg',
+            '../images/manga/komi-san/img-14.jpg',
+            '../images/manga/komi-san/img-15.jpg',
+            '../images/manga/komi-san/img-16.jpg',
+            '../images/manga/komi-san/img-17.jpg',
+            '../images/manga/komi-san/img-18.jpg',
+            '../images/manga/komi-san/img-19.jpg',
+            '../images/manga/komi-san/img-20.jpg',
+            '../images/manga/komi-san/img-21.jpg',
+            '../images/manga/komi-san/img-22.jpg',
+            '../images/manga/komi-san/img-23.jpg',
+            '../images/manga/komi-san/img-24.jpg',
+            '../images/manga/komi-san/img-25.jpg',
+            '../images/manga/komi-san/img-26.jpg',
+            '../images/manga/komi-san/img-27.jpg',
+            '../images/manga/komi-san/img-28.jpg',
+        ];
+
+        const images7 = [
+            '../images/manga/Kurutta-sekai-nobara/img-1.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-2.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-3.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-4.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-5.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-6.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-7.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-8.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-9.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-10.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-11.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-12.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-13.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-14.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-15.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-16.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-17.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-18.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-19.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-20.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-21.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-22.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-23.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-24.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-25.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-26.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-27.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-28.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-29.jpg',
+            '../images/manga/Kurutta-sekai-nobara/img-30.jpg',
+        ];
+
+        const images8 = [
+            '../images/manga/Nagatama-renshuu/img-1.jpg',
+            '../images/manga/Nagatama-renshuu/img-2.jpg',
+            '../images/manga/Nagatama-renshuu/img-3.jpg',
+            '../images/manga/Nagatama-renshuu/img-4.jpg',
+            '../images/manga/Nagatama-renshuu/img-5.jpg',
+            '../images/manga/Nagatama-renshuu/img-6.jpg',
+            '../images/manga/Nagatama-renshuu/img-7.jpg',
+            '../images/manga/Nagatama-renshuu/img-8.jpg',
+            '../images/manga/Nagatama-renshuu/img-9.jpg',
+            '../images/manga/Nagatama-renshuu/img-10.jpg',
+        ];
+
+        const images9 = [
+            '../images/manga/Quetzalcoatl-no-nichijou/img-1.jpg',
+            '../images/manga/Quetzalcoatl-no-nichijou/img-2.JPG',
+            '../images/manga/Quetzalcoatl-no-nichijou/img-3.JPG',
+            '../images/manga/Quetzalcoatl-no-nichijou/img-4.JPG',
+            '../images/manga/Quetzalcoatl-no-nichijou/img-5.JPG',
+            '../images/manga/Quetzalcoatl-no-nichijou/img-6.JPG',
+            '../images/manga/Quetzalcoatl-no-nichijou/img-7.JPG',
+            '../images/manga/Quetzalcoatl-no-nichijou/img-8.JPG',
+            '../images/manga/Quetzalcoatl-no-nichijou/img-9.jpg',
+            '../images/manga/Quetzalcoatl-no-nichijou/img-10.JPG',
+            '../images/manga/Quetzalcoatl-no-nichijou/img-11.JPG',
+            '../images/manga/Quetzalcoatl-no-nichijou/img-12.JPG',
+            '../images/manga/Quetzalcoatl-no-nichijou/img-13.JPG',
+            '../images/manga/Quetzalcoatl-no-nichijou/img-14.jpg',
+            '../images/manga/Quetzalcoatl-no-nichijou/img-15.JPG',
+            '../images/manga/Quetzalcoatl-no-nichijou/img-16.JPG',
+            '../images/manga/Quetzalcoatl-no-nichijou/img-17.JPG',
+            '../images/manga/Quetzalcoatl-no-nichijou/img-18.jpg',
+            '../images/manga/Quetzalcoatl-no-nichijou/img-19.JPG',
+            '../images/manga/Quetzalcoatl-no-nichijou/img-20.JPG',
+            '../images/manga/Quetzalcoatl-no-nichijou/img-21.jpg',
+            '../images/manga/Quetzalcoatl-no-nichijou/img-22.JPG',
+        ];
+
+        const images10 = [
+            '../images/manga/Seiso-kanojo/img-1.jpg',
+            '../images/manga/Seiso-kanojo/img-2.jpg',
+            '../images/manga/Seiso-kanojo/img-3.jpg',
+            '../images/manga/Seiso-kanojo/img-4.jpg',
+            '../images/manga/Seiso-kanojo/img-5.jpg',
+            '../images/manga/Seiso-kanojo/img-6.jpg',
+            '../images/manga/Seiso-kanojo/img-7.jpg',
+            '../images/manga/Seiso-kanojo/img-8.jpg',
+            '../images/manga/Seiso-kanojo/img-9.jpg',
+            '../images/manga/Seiso-kanojo/img-10.jpg',
+            '../images/manga/Seiso-kanojo/img-11.jpg',
+            '../images/manga/Seiso-kanojo/img-12.jpg',
+            '../images/manga/Seiso-kanojo/img-13.jpg',
+            '../images/manga/Seiso-kanojo/img-14.jpg',
+            '../images/manga/Seiso-kanojo/img-15.jpg',
+            '../images/manga/Seiso-kanojo/img-16.jpg',
+            '../images/manga/Seiso-kanojo/img-17.jpg',
+            '../images/manga/Seiso-kanojo/img-18.jpg',
+            '../images/manga/Seiso-kanojo/img-19.jpg',
+            '../images/manga/Seiso-kanojo/img-20.jpg',
+            '../images/manga/Seiso-kanojo/img-21.jpg',
+            '../images/manga/Seiso-kanojo/img-22.jpg',
+            '../images/manga/Seiso-kanojo/img-23.jpg',
+            '../images/manga/Seiso-kanojo/img-24.jpg',
+            '../images/manga/Seiso-kanojo/img-25.jpg',
+            '../images/manga/Seiso-kanojo/img-26.jpg',
+            '../images/manga/Seiso-kanojo/img-27.jpg',
+            '../images/manga/Seiso-kanojo/img-28.jpg',
+            '../images/manga/Seiso-kanojo/img-29.jpg',
+            '../images/manga/Seiso-kanojo/img-30.jpg',
+            '../images/manga/Seiso-kanojo/img-31.jpg',
+            '../images/manga/Seiso-kanojo/img-32.jpg',
+            '../images/manga/Seiso-kanojo/img-33.jpg',
+            '../images/manga/Seiso-kanojo/img-34.jpg',
+            '../images/manga/Seiso-kanojo/img-35.jpg',
+            '../images/manga/Seiso-kanojo/img-36.jpg',
+            '../images/manga/Seiso-kanojo/img-37.jpg',
+            '../images/manga/Seiso-kanojo/img-38.jpg',
+            '../images/manga/Seiso-kanojo/img-39.jpg',
+            '../images/manga/Seiso-kanojo/img-40.jpg',
+            '../images/manga/Seiso-kanojo/img-41.jpg',
+            '../images/manga/Seiso-kanojo/img-42.jpg',
+            '../images/manga/Seiso-kanojo/img-43.jpg',
+            '../images/manga/Seiso-kanojo/img-44.jpg',
+            '../images/manga/Seiso-kanojo/img-45.jpg',
+            '../images/manga/Seiso-kanojo/img-46.jpg',
+            '../images/manga/Seiso-kanojo/img-47.jpg',
+            '../images/manga/Seiso-kanojo/img-48.jpg',
+            '../images/manga/Seiso-kanojo/img-49.jpg',
+            '../images/manga/Seiso-kanojo/img-50.jpg',
+            '../images/manga/Seiso-kanojo/img-51.jpg',
+            '../images/manga/Seiso-kanojo/img-52.jpg',
+            '../images/manga/Seiso-kanojo/img-53.jpg',
+            '../images/manga/Seiso-kanojo/img-54.jpg',
+            '../images/manga/Seiso-kanojo/img-55.jpg',
+            '../images/manga/Seiso-kanojo/img-56.jpg',
+            '../images/manga/Seiso-kanojo/img-57.jpg',
+            '../images/manga/Seiso-kanojo/img-58.jpg',
+            '../images/manga/Seiso-kanojo/img-59.jpg',
+            '../images/manga/Seiso-kanojo/img-60.jpg',
+            '../images/manga/Seiso-kanojo/img-61.jpg',
+            '../images/manga/Seiso-kanojo/img-62.jpg',
+            '../images/manga/Seiso-kanojo/img-63.jpg',
+            '../images/manga/Seiso-kanojo/img-64.jpg',
+            '../images/manga/Seiso-kanojo/img-65.jpg',
+            '../images/manga/Seiso-kanojo/img-66.jpg',
+            '../images/manga/Seiso-kanojo/img-67.jpg',
+            '../images/manga/Seiso-kanojo/img-68.jpg',
+            '../images/manga/Seiso-kanojo/img-69.jpg',
+            '../images/manga/Seiso-kanojo/img-70.jpg',
+            '../images/manga/Seiso-kanojo/img-71.jpg',
+            '../images/manga/Seiso-kanojo/img-72.jpg',
+            '../images/manga/Seiso-kanojo/img-73.jpg',
+            '../images/manga/Seiso-kanojo/img-74.jpg',
+            '../images/manga/Seiso-kanojo/img-75.jpg',
+            '../images/manga/Seiso-kanojo/img-76.jpg',
+            '../images/manga/Seiso-kanojo/img-77.jpg',
+            '../images/manga/Seiso-kanojo/img-78.jpg',
+            '../images/manga/Seiso-kanojo/img-79.jpg',
+            '../images/manga/Seiso-kanojo/img-80.jpg',
+            '../images/manga/Seiso-kanojo/img-81.jpg',
+            '../images/manga/Seiso-kanojo/img-82.jpg',
+            '../images/manga/Seiso-kanojo/img-83.jpg',
+            '../images/manga/Seiso-kanojo/img-84.jpg',
+            '../images/manga/Seiso-kanojo/img-85.jpg',
+            '../images/manga/Seiso-kanojo/img-86.jpg',
+            '../images/manga/Seiso-kanojo/img-87.jpg',
+            '../images/manga/Seiso-kanojo/img-88.jpg',
+        ];
+
+        const images11 = [
+            '../images/manga/Seito-to-nakayoku/img-1.jpg',
+            '../images/manga/Seito-to-nakayoku/img-2.jpg',
+            '../images/manga/Seito-to-nakayoku/img-3.jpg',
+            '../images/manga/Seito-to-nakayoku/img-4.jpg',
+            '../images/manga/Seito-to-nakayoku/img-5.jpg',
+            '../images/manga/Seito-to-nakayoku/img-6.jpg',
+            '../images/manga/Seito-to-nakayoku/img-7.jpg',
+            '../images/manga/Seito-to-nakayoku/img-8.jpg',
+            '../images/manga/Seito-to-nakayoku/img-9.jpg',
+            '../images/manga/Seito-to-nakayoku/img-10.jpg',
+            '../images/manga/Seito-to-nakayoku/img-11.jpg',
+            '../images/manga/Seito-to-nakayoku/img-12.jpg',
+            '../images/manga/Seito-to-nakayoku/img-13.jpg',
+            '../images/manga/Seito-to-nakayoku/img-14.jpg',
+            '../images/manga/Seito-to-nakayoku/img-15.jpg',
+            '../images/manga/Seito-to-nakayoku/img-16.jpg',
+            '../images/manga/Seito-to-nakayoku/img-17.jpg',
+            '../images/manga/Seito-to-nakayoku/img-18.jpg',
+            '../images/manga/Seito-to-nakayoku/img-19.jpg',
+            '../images/manga/Seito-to-nakayoku/img-20.jpg',
+            '../images/manga/Seito-to-nakayoku/img-21.jpg',
+            '../images/manga/Seito-to-nakayoku/img-22.jpg',
+            '../images/manga/Seito-to-nakayoku/img-23.jpg',
+            '../images/manga/Seito-to-nakayoku/img-24.jpg',
+            '../images/manga/Seito-to-nakayoku/img-25.jpg',
+            '../images/manga/Seito-to-nakayoku/img-26.jpg',
+            '../images/manga/Seito-to-nakayoku/img-27.jpg',
+            '../images/manga/Seito-to-nakayoku/img-28.jpg',
+            '../images/manga/Seito-to-nakayoku/img-29.jpg',
+            '../images/manga/Seito-to-nakayoku/img-30.jpg',
+            '../images/manga/Seito-to-nakayoku/img-31.jpg',
+            '../images/manga/Seito-to-nakayoku/img-32.jpg',
+            '../images/manga/Seito-to-nakayoku/img-33.jpg',
+            '../images/manga/Seito-to-nakayoku/img-34.jpg',
+            '../images/manga/Seito-to-nakayoku/img-35.jpg',
+            '../images/manga/Seito-to-nakayoku/img-36.jpg',
+            '../images/manga/Seito-to-nakayoku/img-37.jpg',
+            '../images/manga/Seito-to-nakayoku/img-38.jpg',
+            '../images/manga/Seito-to-nakayoku/img-39.jpg',
+            '../images/manga/Seito-to-nakayoku/img-40.jpg',
+            '../images/manga/Seito-to-nakayoku/img-41.jpg',
+            '../images/manga/Seito-to-nakayoku/img-42.jpg',
+            '../images/manga/Seito-to-nakayoku/img-43.jpg',
+            '../images/manga/Seito-to-nakayoku/img-44.jpg',
+            '../images/manga/Seito-to-nakayoku/img-45.jpg',
+            '../images/manga/Seito-to-nakayoku/img-46.jpg',
+            '../images/manga/Seito-to-nakayoku/img-47.jpg',
+            '../images/manga/Seito-to-nakayoku/img-48.jpg',
+            '../images/manga/Seito-to-nakayoku/img-49.jpg',
+            '../images/manga/Seito-to-nakayoku/img-50.jpg',
+            '../images/manga/Seito-to-nakayoku/img-51.jpg',
+            '../images/manga/Seito-to-nakayoku/img-52.jpg',
+            '../images/manga/Seito-to-nakayoku/img-53.jpg',
+            '../images/manga/Seito-to-nakayoku/img-54.jpg',
+            '../images/manga/Seito-to-nakayoku/img-55.jpg',
+            '../images/manga/Seito-to-nakayoku/img-56.jpg',
+            '../images/manga/Seito-to-nakayoku/img-57.jpg',
+            '../images/manga/Seito-to-nakayoku/img-58.jpg',
+            '../images/manga/Seito-to-nakayoku/img-59.jpg',
+            '../images/manga/Seito-to-nakayoku/img-60.jpg',
+            '../images/manga/Seito-to-nakayoku/img-61.jpg',
+        ];
+
+        const images12 = [
+            '../images/manga/Shiawase-NTR/img-1.jpg',
+            '../images/manga/Shiawase-NTR/img-2.jpg',
+            '../images/manga/Shiawase-NTR/img-3.jpg',
+            '../images/manga/Shiawase-NTR/img-4.jpg',
+            '../images/manga/Shiawase-NTR/img-5.jpg',
+            '../images/manga/Shiawase-NTR/img-6.jpg',
+            '../images/manga/Shiawase-NTR/img-7.jpg',
+            '../images/manga/Shiawase-NTR/img-8.jpg',
+            '../images/manga/Shiawase-NTR/img-9.jpg',
+            '../images/manga/Shiawase-NTR/img-10.jpg',
+            '../images/manga/Shiawase-NTR/img-11.jpg',
+            '../images/manga/Shiawase-NTR/img-12.jpg',
+            '../images/manga/Shiawase-NTR/img-13.jpg',
+            '../images/manga/Shiawase-NTR/img-14.jpg',
+            '../images/manga/Shiawase-NTR/img-15.jpg',
+            '../images/manga/Shiawase-NTR/img-16.jpg',
+            '../images/manga/Shiawase-NTR/img-17.jpg',
+            '../images/manga/Shiawase-NTR/img-18.jpg',
+
+        ];
+
+        const images13 = [
+            '../images/manga/Taisetsu-na-futari/img-1.jpg',
+            '../images/manga/Taisetsu-na-futari/img-2.jpg',
+            '../images/manga/Taisetsu-na-futari/img-3.jpg',
+            '../images/manga/Taisetsu-na-futari/img-4.jpg',
+            '../images/manga/Taisetsu-na-futari/img-5.jpg',
+            '../images/manga/Taisetsu-na-futari/img-6.jpg',
+            '../images/manga/Taisetsu-na-futari/img-7.jpg',
+            '../images/manga/Taisetsu-na-futari/img-8.jpg',
+            '../images/manga/Taisetsu-na-futari/img-9.jpg',
+            '../images/manga/Taisetsu-na-futari/img-10.jpg',
+            '../images/manga/Taisetsu-na-futari/img-11.jpg',
+            '../images/manga/Taisetsu-na-futari/img-12.jpg',
+            '../images/manga/Taisetsu-na-futari/img-13.jpg',
+            '../images/manga/Taisetsu-na-futari/img-14.jpg',
+            '../images/manga/Taisetsu-na-futari/img-15.jpg',
+            '../images/manga/Taisetsu-na-futari/img-16.jpg',
+            '../images/manga/Taisetsu-na-futari/img-17.jpg',
+            '../images/manga/Taisetsu-na-futari/img-18.jpg',
+            '../images/manga/Taisetsu-na-futari/img-19.jpg',
+            '../images/manga/Taisetsu-na-futari/img-20.jpg',
+        ];
+
+        //Randomly select manga
+        function shuffleArray(array) {
+            return array.sort(() => Math.random() - 0.5);
+        }
+
+        const allManga = [images, images2, images3, images4, images5, images6, images7, images8, images9, images10, images11, images12, images13];
+        const shuffledMangaList = shuffleArray([...allManga]); // Keep a shuffled sequence
+        let currentMangaIndex = 0; // Track current manga in shuffled order
+        let selectedManga = shuffledMangaList[currentMangaIndex];
+
+        let currentIndex = 0;
+        let progressBar = document.getElementById("progress-bar");
+        const imageElement = document.getElementById("image");
+        const pauseSymbol = document.getElementById("pause-symbol");
+        const bodyElement = document.body;
+
+        imageElement.src = selectedManga[currentIndex];
+
+        let progressInterval;
+        let currentProgress = 0;
+        let paused = false;
+
+        function updateProgressBar() {
+            if (paused) return;
+
+            currentProgress = 0;
+            progressBar.style.width = "0%";
+
+            if (progressInterval) {
+                clearInterval(progressInterval);
+            }
+
+            progressInterval = setInterval(() => {
+                currentProgress += 1;
+                progressBar.style.width = currentProgress + "%";
+                if (currentProgress >= 100) {
+                    clearInterval(progressInterval);
+                    if (!paused) changeImage();
+                }
+            }, 45); // 4.5seconds then switch to next img
+        }
+
+        function preloadImage(src, callback) {
+            const img = new Image();
+            img.src = src;
+            img.onload = callback;
+        }
+
+        function changeImage() {
+            if (paused) return;
+
+            if (currentIndex < selectedManga.length - 1) {
+                currentIndex++; // Move to next image
+            } else {
+                // Move to next manga in the shuffled list
+                if (currentMangaIndex < shuffledMangaList.length - 1) {
+                    currentMangaIndex++;
+                } else {
+                    currentMangaIndex = 0; // Loop back to first manga
+                }
+                selectedManga = shuffledMangaList[currentMangaIndex];
+                currentIndex = 0; // Reset index
+            }
+
+            const nextSrc = selectedManga[currentIndex];
+            preloadImage(nextSrc, () => {
+                imageElement.src = nextSrc;
+                resetProgressBar(); // Restart progress bar after image change
+            });
+        }
+
+        function previousImage() {
+            if (paused) return;
+
+            if (currentIndex > 0) {
+                currentIndex--; // Move to previous image
+            } else {
+                // Move to the previous manga in the shuffled list
+                if (currentMangaIndex > 0) {
+                    currentMangaIndex--;
+                } else {
+                    currentMangaIndex = shuffledMangaList.length - 1; // Loop to last manga
+                }
+                selectedManga = shuffledMangaList[currentMangaIndex];
+                currentIndex = selectedManga.length - 1; // Last image of the previous manga
+            }
+
+            const prevSrc = selectedManga[currentIndex];
+
+            preloadImage(prevSrc, () => {
+                imageElement.src = prevSrc;
+                resetProgressBar();
+            });
+        }
+
+        function resetProgressBar() {
+            setTimeout(() => {
+                updateProgressBar();
+            }, 5);
+        }
+
+        function handleTouch(event) {
+            const screenWidth = window.innerWidth;
+            const touchX = event.touches[0].clientX;
+
+            if (touchX < screenWidth / 3) {
+                previousImage();
+            } else if (touchX > screenWidth * 0.6) {
+                changeImage();
+            } else {
+                paused = !paused;
+                if (!paused) {
+                    updateProgressBar();
+                }
+                togglePauseSymbol();
+            }
+        }
+
+        function togglePauseSymbol() {
+            const progressBarContainer = document.getElementById("progress-bar-container");
+
+            if (paused) {
+                pauseSymbol.style.display = "block";
+                bodyElement.classList.add("paused");
+                progressBarContainer.style.display = "none";
+            } else {
+                pauseSymbol.style.display = "none";
+                bodyElement.classList.remove("paused");
+                progressBarContainer.style.display = "block";
+            }
+        }
+
+        // Event listeners
+        document.addEventListener("touchstart", handleTouch);
+
+        // Initialize the slideshow
+        resetProgressBar();
+
+    </script>
+    
+</body>
+</html>
