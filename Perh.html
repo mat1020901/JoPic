@@ -129,6 +129,44 @@
         .manga-container img:hover {
             transform: scale(1.1); /* Hover effect */
         }
+
+        /*people div*/
+        .people-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Space between images */
+            justify-content: center; /* Center images */
+            padding: 5px;
+        }
+
+        .people-container a {
+            text-decoration: none;
+            max-width: 100%;
+        }
+
+        .people-container img {
+            width: 100px; /* Adjust size */
+            height: 100px;
+            object-fit: cover; /* Keep aspect ratio */
+            border-radius: 100px;
+            box-shadow: 0px 0px 20px rgba(249, 155, 228, 0.7); /* Shadow effect */
+            transition: transform 0.3s ease;
+        }
+
+        .people-container img:hover {
+            transform: scale(1.1); /* Hover effect */
+        }
+        
+        /* Pause symbol styling */
+        #pause-symbol {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            display: none; /* Initially hidden */
+        }
         
         /* Pause symbol styling */
         #pause-symbol {
@@ -207,6 +245,44 @@
         </a>
         <a href="./manga-html/Seiso-kanojo.html">
             <img src="./images/manga/Seiso-kanojo/img-1.jpg" alt="Image 15">
+        </a>
+    </div>
+    <div class="people-container">
+        <a href="./people-html/cheryl.html">
+            <img src="./images/cheryl/Cheryl-1.JPEG" alt="Image 1">
+        </a>
+        <a href="./people-html/hx-wq-xt.html">
+            <img src="./images/hx/hx-9.JPG" alt="Image 2">
+        </a>
+        <a href="./people-html/esther-py-wl.html">
+            <img src="./images/wl/wl-4.JPEG" alt="Image 3">
+        </a>
+        <a href="./people-html/evi.html">
+            <img src="./images/evi/evi-34.JPEG" alt="Image 4">
+        </a>
+        <a href="./people-html/doris.html">
+            <img src="./images/doris/doris-25.jpg" alt="Image 5">
+        </a>
+        <a href="./people-html/jt-kq-yn.html">
+            <img src="./images/kq/kq-12.jpg" alt="Image 6">
+        </a>
+        <a href="./people-html/emily-li-an-ms-venus.html">
+            <img src="./images/li-an/li-an-13.JPG" alt="Image 7">
+        </a>
+        <a href="./people-html/sy-xv.html">
+            <img src="./images/sy/sy-1.jpg" alt="Image 8">
+        </a>
+        <a href="./people-html/wincy.html">
+            <img src="./images/wincy/Wincy-13.JPEG" alt="Image 9">
+        </a>
+        <a href="./people-html/cl.html">
+            <img src="./images/cl/cl-12.jpg" alt="Image 10">
+        </a>
+        <a href="./people-html/others.html">
+            <img src="./images/others/sk-5.jpeg" alt="Image11">
+        </a>
+        <a href="./people-html/sexymimi.html">
+            <img src="./images/sexymimi/sexymimi-5.JPEG" alt="Image 12">
         </a>
     </div>
     <script>
