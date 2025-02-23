@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoPic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 200vh;
+            background-color: black;
+            overflow-y: auto;
+            flex-direction: column;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Semi-transparent background when paused */
+        body.paused {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        #progress-bar-container {
+            width: 80%;
+            height: 5px;
+            background-color: #333333;
+            position: fixed;
+            margin-top: 5px;
+            margin-bottom:5px;
+            border-radius: 10px;
+            overflow: hidden;
+            top: 0px;
+        }
+
+        #progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #bbbbbb;
+            border-radius: 10px;
+        }
+
+        #image-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: calc(100vh - 80px);
+            position: relative;
+            top: 5px;
+            padding-top: 5px;
+            padding-bottom: 20px;
+            margin-top:5px;
+        }
+
+        #image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        #image-container2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height:auto;
+            position: relative;
+            top: 5px;
+            padding-bottom: 20px;
+            margin-top: 30px;
+        }
+
+        #image2 {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        #image-container2 a img {
+            transition: transform 0.5s ease-in-out;
+        }
+
+        #image-container2 a:active img {
+            transform: scale(0.9); /* Shrink when clicked */
+        }
+
+        /* Animation for enlarging */
+        @keyframes shrink-enlarge {
+            0% { transform: scale(1); } /* Normal */
+            50% { transform: scale(0.6); } /* Shrink */
+            100% { transform: scale(1.1); } /* Enlarge */
+        }
+
+        #image-container2 a img.clicked {
+            animation: shrink-enlarge 0.3s ease-in-out;
+        }
+
+        .manga-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Space between images */
+            justify-content: center; /* Center images */
+            padding: 5px;
+        }
+
+        .manga-container a {
+            text-decoration: none;
+            max-width: 100%;
+        }
+
+        .manga-container img {
+            width: 90px; /* Adjust size */
+            height: 160px;
+            object-fit: cover; /* Keep aspect ratio */
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .manga-container img:hover {
+            transform: scale(1.1); /* Hover effect */
+        }
+
+        /*people div*/
+        .people-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Space between images */
+            justify-content: center; /* Center images */
+            padding: 5px;
+        }
+
+        .people-container a {
+            text-decoration: none;
+            max-width: 100%;
+        }
+
+        .people-container img {
+            width: 100px; /* Adjust size */
+            height: 100px;
+            object-fit: cover; /* Keep aspect ratio */
+            border-radius: 100px;
+            box-shadow: 0px 0px 20px rgba(249, 155, 228, 0.7); /* Shadow effect */
+            transition: transform 0.3s ease;
+        }
+
+        .people-container img:hover {
+            transform: scale(1.1); /* Hover effect */
+        }
+        
+        /* Pause symbol styling */
+        #pause-symbol {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            display: none; /* Initially hidden */
+        }
+        
+        /* Pause symbol styling */
+        #pause-symbol {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            display: none; /* Initially hidden */
+        }
+
+        /* Video styling */
+        #video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none; /* Initially hide the video */
+        }
+
+    </style>
+</head>
+<body id="animation-container">
+    <div id="progress-bar-container">
+        <div id="progress-bar"></div>
+    </div>
+    <div id="image-container">
+        <img id="image" src="images/cheryl/Cheryl-1.JPEG" alt="Image 1">
+        <video id="video" autoplay playsinline muted>
+            
+        </video>
+    </div>
+    <div id="pause-symbol">||</div> <!-- Pause symbol -->
+    <div class="manga-container">
+        <a href="../Perh.html">
+            <img src="../images/1/Perh.JPG" alt="Image 1">
+        </a>
+        <a href="./manga-html/manga.html">
+            <img src="../images/1/mangaPic.jpg" alt="Image 2">
+        </a>
+        <a href="../manga-html/Baito-gambaru.html">
+            <img src="../images/manga/Baito-gambaru/img-1.jpg" alt="Image 3">
+        </a>
+        <a href="../manga-html/Quetzalcoatl-no-nichijou.html">
+            <img src="../images/manga/Quetzalcoatl-no-nichijou/img-1.jpg" alt="Image 4">
+        </a>
+        <a href="../manga-html/Kurutta-sekai-nobara.html">
+            <img src="../images/manga/Kurutta-sekai-nobara/img-1.jpg" alt="Image 5">
+        </a>
+        <a href="../manga-html/Jujutsu-shoujo.html">
+            <img src="../images/manga/Jujutsu-shoujo/img-1.jpg" alt="Image 6">
+        </a>
+        <a href="../manga-html/Nagatama-renshuu.html">
+            <img src="../images/manga/Nagatama-renshuu/img-1.jpg" alt="Image 7">
+        </a>
+        <a href="../manga-html/komi-san.html">
+            <img src="../images/manga/komi-san/img-1.jpg" alt="Image 8">
+        </a>
+        <a href="../manga-html/Seito-to-nakayoku.html">
+            <img src="../images/manga/Seito-to-nakayoku/img-1.jpg" alt="Image 9">
+        </a>
+        <a href="../manga-html/Gokinjyo-NTR.html">
+            <img src="../images/manga/Gokinjyo-NTR/img-1.jpg" alt="Image 10">
+        </a>
+        <a href="../manga-html/Shiawase-NTR.html">
+            <img src="../images/manga/Shiawase-NTR/img-1.jpg" alt="Image 11">
+        </a>
+        <a href="../manga-html/Taisetsu-na-futari.html">
+            <img src="../images/manga/Taisetsu-na-futari/img-1.jpg" alt="Image 12">
+        </a>
+        <a href="../manga-html/Cos-lover.html">
+            <img src="../images/manga/Cos-lover/img-1.jpg" alt="Image 13">
+        </a>
+        <a href="../manga-html/Gachihame-SEX-shidou.html">
+            <img src="../images/manga/Gachihame-SEX-shidou/img-1.jpg" alt="Image 14">
+        </a>
+        <a href="../manga-html/Seiso-kanojo.html">
+            <img src="../images/manga/Seiso-kanojo/img-1.jpg" alt="Image 15">
+        </a>
+    </div>
+    <div class="people-container">
+        <a href="../people-html/cheryl.html">
+            <img src="../images/cheryl/Cheryl-1.JPEG" alt="Image 1">
+        </a>
+        <a href="../people-html/hx-wq-xt.html">
+            <img src="../images/hx/hx-9.JPG" alt="Image 2">
+        </a>
+        <a href="../people-html/esther-py-wl.html">
+            <img src="../images/wl/wl-4.JPEG" alt="Image 3">
+        </a>
+        <a href="../people-html/evi.html">
+            <img src="../images/evi/evi-34.JPEG" alt="Image 4">
+        </a>
+        <a href="../people-html/doris.html">
+            <img src="../images/doris/doris-25.jpg" alt="Image 5">
+        </a>
+        <a href="../people-html/jt-kq-yn.html">
+            <img src="../images/kq/kq-12.jpg" alt="Image 6">
+        </a>
+        <a href="../people-html/emily-li-an-ms-venus.html">
+            <img src="../images/li-an/li-an-13.JPG" alt="Image 7">
+        </a>
+        <a href="../people-html/sy-xv.html">
+            <img src="../images/sy/sy-1.jpg" alt="Image 8">
+        </a>
+        <a href="../people-html/wincy.html">
+            <img src="../images/wincy/Wincy-13.JPEG" alt="Image 9">
+        </a>
+        <a href="../people-html/cl.html">
+            <img src="../images/cl/cl-12.jpg" alt="Image 10">
+        </a>
+        <a href="../people-html/others.html">
+            <img src="../images/others/sk-5.jpeg" alt="Image11">
+        </a>
+        <a href="../people-html/sexymimi.html">
+            <img src="../images/sexymimi/sexymimi-5.JPEG" alt="Image 12">
+        </a>
+    </div>
+    <script>
+        const imagesAndVideos = [
+            '../images/wincy/Wincy-1.MP4',
+            '../images/wincy/Wincy-2.JPEG',
+            '../images/wincy/Wincy-3.JPEG',
+            '../images/wincy/Wincy-4.JPEG',
+            '../images/wincy/Wincy-5.JPEG',
+            '../images/wincy/Wincy-6.JPEG',
+            '../images/wincy/Wincy-7.JPEG',
+            '../images/wincy/Wincy-8.JPEG',
+            '../images/wincy/Wincy-9.JPEG',
+            '../images/wincy/Wincy-10.JPEG',
+            '../images/wincy/Wincy-11.JPEG',
+            '../images/wincy/Wincy-12.JPEG',
+            '../images/wincy/Wincy-13.JPEG',
+            '../images/wincy/Wincy-14.JPEG',
+            '../images/wincy/Wincy-15.JPEG',
+            '../images/wincy/Wincy-16.JPEG',
+            '../images/wincy/Wincy-17.JPEG',
+            '../images/wincy/Wincy-18.JPEG',
+            '../images/wincy/Wincy-19.JPEG',
+            //'../images/wincy/Wincy-20.JPEG',
+            '../images/wincy/Wincy-21.JPEG',
+            '../images/wincy/Wincy-22.JPEG',
+            '../images/wincy/Wincy-23.JPEG',
+            '../images/wincy/Wincy-24.JPEG',
+            '../images/wincy/Wincy-25.JPEG',
+            '../images/wincy/Wincy-26.JPEG',
+            '../images/wincy/Wincy-27.JPEG',
+            '../images/wincy/Wincy-28.JPEG',
+            '../images/wincy/Wincy-29.JPEG',
+            '../images/wincy/Wincy-30.JPEG',
+            '../images/wincy/Wincy-31.JPEG',
+            '../images/wincy/Wincy-32.jpg',
+            '../images/wincy/Wincy-33.jpg',
+            '../images/wincy/Wincy-34.jpg',
+            '../images/wincy/Wincy-35.jpg',
+            '../images/wincy/Wincy-36.jpg',
+        ];
+    
+        // Shuffle function to randomize the array
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+            }
+        }
+    
+        // Shuffle the array on page load
+        shuffleArray(imagesAndVideos);
+    
+        let currentIndex = 0;
+        let progressBar = document.getElementById("progress-bar");
+        const imageElement = document.getElementById("image");
+        const videoElement = document.getElementById("video");
+        const pauseSymbol = document.getElementById("pause-symbol");
+        const bodyElement = document.body;
+    
+        const firstImage = imagesAndVideos[currentIndex]; // Randomized first image
+        imageElement.src = firstImage;
+
+        let progressInterval;
+        let currentProgress = 0;
+        let paused = false;
+    
+        function updateProgressBar() {
+            if (paused) return;
+    
+            currentProgress = 0;
+            progressBar.style.width = "0%";
+    
+            if (progressInterval) {
+                clearInterval(progressInterval);
+            }
+    
+            if (isVideo(imagesAndVideos[currentIndex])) {
+                imageElement.style.display = 'none';
+                videoElement.style.display = 'block';
+                videoElement.play();
+                videoElement.onended = () => {
+                    if (!paused) {
+                        changeImage();
+                    }
+                };
+                return;
+            }
+    
+            progressInterval = setInterval(() => {
+                currentProgress += 1;
+                progressBar.style.width = currentProgress + "%";
+                if (currentProgress >= 100) {
+                    clearInterval(progressInterval);
+                    if (!paused) changeImage();
+                }
+            }, 30);
+        }
+    
+        function preloadImage(src, callback) {
+            const img = new Image();
+            img.src = src;
+            img.onload = callback;
+        }
+    
+        function changeImage() {
+            if (paused) return;
+    
+            if (videoElement.style.display === 'block') {
+                videoElement.pause();
+                videoElement.currentTime = 0;
+            }
+    
+            currentIndex = (currentIndex + 1) % imagesAndVideos.length;
+            const nextSrc = imagesAndVideos[currentIndex];
+    
+            preloadImage(nextSrc, () => {
+                if (isVideo(nextSrc)) {
+                    imageElement.style.display = 'none';
+                    videoElement.style.display = 'block';
+                    videoElement.src = nextSrc;
+                    videoElement.play();
+                } else {
+                    imageElement.style.display = 'block';
+                    videoElement.style.display = 'none';
+                    imageElement.src = nextSrc;
+                }
+            });
+    
+            resetProgressBar();
+        }
+    
+        function previousImage() {
+            if (paused) return;
+    
+            if (videoElement.style.display === 'block') {
+                videoElement.pause();
+                videoElement.currentTime = 0;
+            }
+    
+            currentIndex = (currentIndex - 1 + imagesAndVideos.length) % imagesAndVideos.length;
+            const prevSrc = imagesAndVideos[currentIndex];
+    
+            preloadImage(prevSrc, () => {
+                if (isVideo(prevSrc)) {
+                    imageElement.style.display = 'none';
+                    videoElement.style.display = 'block';
+                    videoElement.src = prevSrc;
+                    videoElement.play();
+                } else {
+                    imageElement.style.display = 'block';
+                    videoElement.style.display = 'none';
+                    imageElement.src = prevSrc;
+                }
+            });
+    
+            resetProgressBar();
+        }
+    
+        function resetProgressBar() {
+            setTimeout(() => {
+                updateProgressBar();
+            }, 100);
+        }
+    
+        function handleTouch(event) {
+            const screenWidth = window.innerWidth;
+            const touchX = event.touches[0].clientX;
+    
+            if (touchX < screenWidth / 3) {
+                previousImage();
+            } else if (touchX > screenWidth * 0.6) {
+                changeImage();
+            } else {
+                paused = !paused;
+                if (!paused) {
+                    updateProgressBar();
+                }
+                togglePauseSymbol();
+            }
+        }
+    
+        function togglePauseSymbol() {
+            const progressBarContainer = document.getElementById("progress-bar-container");
+    
+            if (paused) {
+                pauseSymbol.style.display = "block";
+                bodyElement.classList.add("paused");
+                progressBarContainer.style.display = "none";
+    
+                if (videoElement.style.display === 'block') {
+                    videoElement.loop = true;
+                }
+            } else {
+                pauseSymbol.style.display = "none";
+                bodyElement.classList.remove("paused");
+                progressBarContainer.style.display = "block";
+    
+                videoElement.loop = false;
+            }
+        }
+    
+        function isVideo(src) {
+            return src.endsWith('.mp4') || src.endsWith('.mov') || src.endsWith('.avi');
+        }
+    
+        // Event listeners
+        document.addEventListener("touchstart", handleTouch);
+    
+        // Initialize the slideshow
+        resetProgressBar();
+
+    </script>
+    
+</body>
+</html>
