@@ -51,95 +51,14 @@
     </head>
     <body id="allVid">
         <div id="video-container">
-            <video id="main-video" playsinline controls autoplay loop>
-                <source id="video-source" type="video/mp4">
+            <video id="main-video" playsinline controls loop>
+                <source src="./video/PMV1.mp4" type="video/mp4">
             </video>
         </div>
-        <div id="video-album">
-            <img src="./thumbnail/PMV1.jpg" alt="Thumbnail 12" data-video="./video/PMV1.mp4">
-            <img src="./thumbnail/PMV-Bukkake.jpg" alt="Thumbnail 8" data-video="./video/PMV-Bukkake.mp4">
-            <img src="./thumbnail/PMV-JAV-1.jpg" alt="Thumbnail 9" data-video="./video/PMV-JAV-1.mp4">
-            <img src="./thumbnail/PMV-JAV-2.jpg" alt="Thumbnail 10" data-video="./video/PMV-JAV-2.mp4">
-            <img src="./thumbnail/PMV-JAV-3.jpg" alt="Thumbnail 11" data-video="./video/PMV-JAV-3.mp4">
-
-            <img src="./thumbnail/HMV-ntrGF.jpg" alt="Thumbnail 7" data-video="./video/HMV-ntrGF.mp4">
-            <img src="./thumbnail/HMV-NTR.jpg" alt="Thumbnail 6" data-video="./video/video/HMV-NTR.mp4">
-
-            <img src="./thumbnail/ajisai.jpg" alt="Thumbnail 2" data-video="./video/ajisai.mp4">
-            <img src="./thumbnail/akane.jpg" alt="Thumbnail 3" data-video="./video/akane.mp4">
-            <img src="./thumbnail/himawari.jpg" alt="Thumbnail 5" data-video="./video/himawari.mp4">
-            <img src="./thumbnail/imaria.jpg" alt="Thumbnail 8" data-video="./video/imaria.mp4">
-            <img src="./thumbnail/isekai-yarisaa.jpg" alt="Thumbnail 8" data-video="./video/isekai-yarisaa.mp4">
-            <img src="./thumbnail/seishidou.jpg" alt="Thumbnail 13" data-video="./video/seishidou.mp4">
-            <img src="./thumbnail/uchi-no-otouto.jpg" alt="Thumbnail 14" data-video="./video/uchi-no-otouto.mp4">
-            
-            <img src="./thumbnail/adriana-chechik.jpg" alt="Thumbnail 1" data-video="./video/adriana-chechik.mp4">
-            <img src="./thumbnail/fuckfaces.jpg" alt="Thumbnail 4" data-video="./video/fuckfaces.mp4">
-            <img src="./thumbnail/kate-kuray.jpg" alt="Thumbnail " data-video="./video/kate-kuray.mp4">
-            <img src="./thumbnail/mia-khalifa.jpg" alt="Thumbnail " data-video="./video/mia-khalifa.mp4">
-        </div>
+        
 
         <script>
-            const videoList = [
-                "./video/adriana-chechik.mp4",
-                "./video/ajisai.mp4",
-                "./video/akane.mp4",
-                "./video/fuckfaces.mp4",
-                "./video/himawari.mp4",
-                "./video/HMV-NTR.mp4",
-                "./video/HMV-ntrGF.mp4",
-                "./video/imaria.mp4",
-                "./video/isekai-yarisaa.mp4",
-                "./video/kate-kuray.mp4",
-                "./video/mia-khalifa.mp4",
-                "./video/PMV-Bukkake.mp4",
-                "./video/PMV-JAV-1.mp4",
-                "./video/PMV-JAV-2.mp4",
-                "./video/PMV-JAV-3.mp4",
-                "./video/PMV1.mp4",
-                "./video/seishidou.mp4",
-                "./video/uchi-no-otouto.mp4",
-            ];
-
-            // Preload videos by creating hidden video elements
-            function preloadVideos() {
-                videoList.forEach(src => {
-                    let video = document.createElement("video");
-                    video.src = src;
-                    video.preload = "auto"; // Ensures the video is downloaded in advance
-                    video.style.display = "none"; // Hide the preloaded video
-                    document.body.appendChild(video);
-                });
-            }
-
-            // Function to select a random video at the start
-            function setRandomVideo() {
-                let randomVideo = videoList[Math.floor(Math.random() * videoList.length)];
-                let video = document.getElementById("main-video");
-                let source = document.getElementById("video-source");
-
-                source.src = randomVideo;
-                video.load();
-                video.play();
-            }
-
-            // Select all thumbnails
-            document.querySelectorAll("#video-album img").forEach(thumbnail => {
-                // Function to change video
-                function changeVideo() {
-                    let newVideoSrc = this.getAttribute("data-video");
-                    let video = document.getElementById("main-video");
-                    let source = video.querySelector("source");
-                    source.src = newVideoSrc;
-                    video.load();
-                    video.play();
-                }
-
-                // Listen for both click and touch events
-                thumbnail.addEventListener("click", changeVideo);
-                thumbnail.addEventListener("touchstart", changeVideo);
-            });
-            window.onload = setRandomVideo;
+            
         </script>
     </body>
 </html>
