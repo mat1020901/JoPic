@@ -186,7 +186,19 @@
             object-fit: contain;
             display: none; /* Initially hide the video */
         }
-
+        #btn{
+            background-color: #eeeeee;
+            border: 2px solid #555555;
+            padding: 9px 16px;
+            text-align: center;
+            font-size: 16px;
+            box-shadow: 0 8px 16px 0 rgba(249, 155, 228, 0.7);
+        }
+        #btn:hover{
+            background-color: #555555;
+            border: 2px solid #eeeeee;
+            color: #eeeeee;
+        }
     </style>
 </head>
 <body id="animation-container">
@@ -287,6 +299,9 @@
         <a href="./people-html/sexymimi.html">
             <img src="./images/sexymimi/sexymimi-5.JPEG" alt="Image 12">
         </a>
+    </div>
+    <div>
+        <button id="btn" onclick="location.href='all.html'" type="button">All</button>
     </div>
     <script>
         const imagesAndVideos = [
