@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 200vh;
+    background-color: black;
+    overflow-y: auto;
+    flex-direction: column;
+    transition: background-color 0.3s ease;
+}
+
+/* Semi-transparent background when paused */
+body.paused {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#progress-bar-container {
+    width: 80%;
+    height: 5px;
+    background-color: #333333;
+    position: fixed;
+    margin-top: 5px;
+    margin-bottom:5px;
+    border-radius: 10px;
+    overflow: hidden;
+    top: 0px;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #bbbbbb;
+    border-radius: 10px;
+}
+
+#image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 80px);
+    position: relative;
+    top: 5px;
+    padding-top: 5px;
+    padding-bottom: 20px;
+    margin-top:5px;
+}
+
+#image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Video styling */
+#video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: none; /* Initially hide the video */
+}
+
+.manga-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between images */
+    justify-content: center; /* Center images */
+    padding: 5px;
+}
+
+.manga-container a {
+    text-decoration: none;
+    max-width: 100%;
+}
+
+.manga-container img {
+    width: 90px; /* Adjust size */
+    height: 160px;
+    object-fit: cover; /* Keep aspect ratio */
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.manga-container img:hover {
+    transform: scale(1.1); /* Hover effect */
+}
+
+/*people div*/
+.people-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between images */
+    justify-content: center; /* Center images */
+    padding: 5px;
+}
+
+.people-container a {
+    text-decoration: none;
+    max-width: 100%;
+}
+
+.people-container img {
+    width: 90px; /* Adjust size */
+    height: 90px;
+    object-fit: cover; /* Keep aspect ratio */
+    border-radius: 100px;
+    box-shadow: 0px 0px 20px rgba(249, 155, 228, 0.7); /* Shadow effect */
+    transition: transform 0.3s ease;
+}
+
+.people-container img:hover {
+    transform: scale(1.1); /* Hover effect */
+}
+
+/* Pause symbol styling */
+#pause-symbol {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    display: none; /* Initially hidden */
+}
+
+/* Pause symbol styling */
+#pause-symbol {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    display: none; /* Initially hidden */
+}
+
+#btn{
+    background-color: #eeeeee;
+    color: #555555;
+    border: 2px solid #555555;
+    padding: 9px 16px;
+    text-align: center;
+    font-size: 16px;
+    box-shadow: 0 8px 16px 0 rgba(249, 155, 228, 0.7);
+    text-decoration: none;
+}
+#btn:hover{
+    background-color: #555555;
+    border: 2px solid #eeeeee;
+    color: #eeeeee;
+}
+
+.line-button-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0; /*spacing above and below*/
+    width: 90%;
+    gap: 15px;
+}
+
+hr{
+    flex: 1;
+    border: none;
+    border-top: 1px solid #ddd;
+    margin:0;
+}
+.button-link{
+    padding: 8px 16px;
+    background-color: aliceblue;
+    color: #222222;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 8px;
+}
+.button-link:hover{
+    background-color: #333333;
+    color: #eeeeee;
+}
