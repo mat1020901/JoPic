@@ -128,18 +128,7 @@ body.paused {
     font-size: 24px;
     color: white;
     font-weight: bold;
-    display: none; /* Initially hidden */
-}
-
-/* Pause symbol styling */
-#pause-symbol {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    color: white;
-    font-weight: bold;
-    display: none; /* Initially hidden */
+    display: none !important; /* Initially hidden */
 }
 
 #btn{
