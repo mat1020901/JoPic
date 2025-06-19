@@ -155,6 +155,7 @@ const mediaSeries = {
     './images/esther/esther-16.JPEG',
     //'./images/esther/esther-17.JPEG',
     './images/esther/esther-18.jpg',
+    './images/esther/esther-19.jpg',
   ],
   evi: [
     './images/evi/evi-1.JPEG',
@@ -457,6 +458,7 @@ const mediaSeries = {
     './images/venus/venus-11.jpg',
     './images/venus/venus-12.JPG',
     './images/venus/venus-13.JPG',
+    './images/venus/venus-14.jpg',
   ],
   wincy: [
     './images/wincy/Wincy-1.MP4',
