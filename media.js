@@ -156,6 +156,12 @@ const mediaSeries = {
     //'./images/esther/esther-17.JPEG',
     './images/esther/esther-18.jpg',
     './images/esther/esther-19.jpg',
+    './images/esther/esther-20.jpg',
+    './images/esther/esther-21.jpg',
+    './images/esther/esther-22.jpg',
+    './images/esther/esther-23.jpg',
+    './images/esther/esther-24.jpg',
+    './images/esther/esther-25.jpg',
   ],
   evi: [
     './images/evi/evi-1.JPEG',
