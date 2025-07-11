@@ -61,6 +61,9 @@
             <img src="./images/kq/kq-12.jpg" alt="Image 4">
         </a>
     </div>
+    <div style="text-align: center; margin: 30px 0;">
+        <button onclick="shuffleImagesAndRestart()" style="padding: 10px 20px; font-size: 16px;">Random</button>
+    </div>
     <script>
         const imagesAndVideos = [
 
@@ -80,17 +83,9 @@
             './images/esther/esther-24.jpg',
             './images/esther/esther-25.jpg',
 
-            './images/py/py-1.JPEG',
             './images/py/py-2.JPEG',
             './images/py/py-3.JPEG',
-            './images/py/py-4.JPEG',
-            './images/py/py-5.JPEG',
-            './images/py/py-6.JPEG',
-            './images/py/py-7.JPEG',
             './images/py/py-8.jpg',
-            './images/py/py-9.jpg',
-            './images/py/py-10.jpg',
-            './images/py/py-11.jpg',
 
             './images/evi/evi-1.JPEG',
             './images/evi/evi-2.JPEG',
@@ -128,16 +123,21 @@
             './images/kq/kq-22.jpg',
             './images/kq/kq-23.jpg',
 
+            './images/xt/xt-1.jpg',
+
+            './images/venus/venus-2.JPEG',
+            './images/venus/venus-6.jpg',
+            './images/venus/venus-7.jpg',
+            './images/venus/venus-8.jpg',
+            './images/venus/venus-9.jpg',
+            './images/venus/venus-15.jpg',
+            './images/venus/venus-16.jpg',
+            './images/venus/venus-17.jpg',
+
             './images/wj/wj-2.jpg',
 
             './images/manga/Baito-gambaru/img-6.jpg',
-            './images/manga/Baito-gambaru/img-7.jpg',
-            './images/manga/Baito-gambaru/img-8.jpg',
-            './images/manga/Baito-gambaru/img-9.jpg',
-            './images/manga/Baito-gambaru/img-10.jpg',
-            './images/manga/Baito-gambaru/img-11.jpg',
             './images/manga/Baito-gambaru/img-12.jpg',
-            './images/manga/Baito-gambaru/img-13.jpg',
             './images/manga/Baito-gambaru/img-14.jpg',
             './images/manga/Baito-gambaru/img-15.jpg',
             './images/manga/Baito-gambaru/img-17.jpg',
@@ -147,18 +147,12 @@
             './images/manga/Baito-gambaru/img-26.jpg',
             './images/manga/Baito-gambaru/img-27.jpg',
             './images/manga/Baito-gambaru/img-28.jpg',
-            './images/manga/Baito-gambaru/img-29.jpg',
             './images/manga/Baito-gambaru/img-30.jpg',
-            './images/manga/Baito-gambaru/img-31.jpg',
             './images/manga/Baito-gambaru/img-37.jpg',
-            './images/manga/Baito-gambaru/img-34.jpg',
             './images/manga/Baito-gambaru/img-35.jpg',
-
+            './images/manga/Baito-gambaru/img-36.jpg',
 
             './images/manga/Quetzalcoatl-no-nichijou/img-1.jpg',
-            './images/manga/Quetzalcoatl-no-nichijou/img-10.jpg',
-            './images/manga/Quetzalcoatl-no-nichijou/img-12.jpg',
-            './images/manga/Quetzalcoatl-no-nichijou/img-14.jpg',
             './images/manga/Quetzalcoatl-no-nichijou/img-15.jpg',
             './images/manga/Quetzalcoatl-no-nichijou/img-17.jpg',
             './images/manga/Quetzalcoatl-no-nichijou/img-19.jpg',
@@ -179,30 +173,48 @@
             './images/manga/Kurutta-sekai-nobara/img-26.jpg',
 
             './images/manga/Gokinjyo-NTR/img-1.jpg',
-            './images/manga/Gokinjyo-NTR/img-7.jpg',
-            './images/manga/Gokinjyo-NTR/img-8.jpg',
             './images/manga/Gokinjyo-NTR/img-9.jpg',
-            './images/manga/Gokinjyo-NTR/img-10.jpg',
             './images/manga/Gokinjyo-NTR/img-14.jpg',
-            './images/manga/Gokinjyo-NTR/img-16.jpg',
             './images/manga/Gokinjyo-NTR/img-17.jpg',
             './images/manga/Gokinjyo-NTR/img-18.jpg',
             './images/manga/Gokinjyo-NTR/img-19.jpg',
 
             './images/manga/Shiawase-NTR/img-1.jpg',
             './images/manga/Shiawase-NTR/img-5.jpg',
-            './images/manga/Shiawase-NTR/img-8.jpg',
             './images/manga/Shiawase-NTR/img-10.jpg',
             './images/manga/Shiawase-NTR/img-11.jpg',
             './images/manga/Shiawase-NTR/img-12.jpg',
             './images/manga/Shiawase-NTR/img-13.jpg',
-            './images/manga/Shiawase-NTR/img-14.jpg',
             './images/manga/Shiawase-NTR/img-15.jpg',
             './images/manga/Shiawase-NTR/img-16.jpg',
             './images/manga/Shiawase-NTR/img-17.jpg',
             './images/manga/Shiawase-NTR/img-18.jpg',
 
         ];
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]]; // Swap
+            }
+        }
+
+        function shuffleImagesAndRestart() {
+            shuffleArray(imagesAndVideos);
+            currentIndex = 0;
+            const first = imagesAndVideos[currentIndex];
+            if (isVideo(first)) {
+                imageElement.style.display = 'none';
+                videoElement.style.display = 'block';
+                videoElement.src = first;
+                videoElement.play();
+            } else {
+                videoElement.style.display = 'none';
+                imageElement.style.display = 'block';
+                imageElement.src = first;
+            }
+            resetProgressBar();
+        }
     
         let currentIndex = 0;
         let progressBar = document.getElementById("progress-bar");
