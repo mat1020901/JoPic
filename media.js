@@ -282,6 +282,10 @@ const mediaSeries = {
     //'./images/evi/evi-103.jpg',
     './images/evi/evi-104.jpg',
     './images/evi/evi-105.jpg',
+    './images/evi/evi-106.jpg',
+    './images/evi/evi-107.jpg',
+    './images/evi/evi-108.jpg',
+    './images/evi/evi-109.jpg',
 
 
   ],
