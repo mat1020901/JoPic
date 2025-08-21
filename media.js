@@ -657,6 +657,10 @@ const mediaSeries = {
     './images/ym/ym-19.jpg',
     './images/ym/ym-20.jpg',
     './images/ym/ym-21.jpg',
+    './images/ym/ym-22.jpg',
+    './images/ym/ym-23.jpg',
+    './images/ym/ym-24.jpg',
+    './images/ym/ym-25.jpg',
   ],
   yn: [
     './images/yn/yn-1.jpg',
