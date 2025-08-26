@@ -444,6 +444,7 @@ const mediaSeries = {
     './images/sexymimi/sexymimi-58.jpg',
     './images/sexymimi/sexymimi-59.jpg',
     './images/sexymimi/sexymimi-60.jpg',
+    './images/sexymimi/sexymimi-61.jpg',
   ],
   sn: [
     './images/sn/sn-1.jpg',
