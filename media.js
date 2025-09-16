@@ -354,6 +354,15 @@ const mediaSeries = {
     './images/kq/kq-21.jpg',
     './images/kq/kq-22.jpg',
     './images/kq/kq-23.jpg',
+    './images/kq/kq-24.JPG',
+    './images/kq/kq-25.JPG',
+    './images/kq/kq-26.JPG',
+    './images/kq/kq-27.JPG',
+    './images/kq/kq-28.JPG',
+    './images/kq/kq-29.JPG',
+    './images/kq/kq-30.jpg',
+    './images/kq/kq-31.JPG',
+    './images/kq/kq-32.JPG',
 
   ],
   lian: [
