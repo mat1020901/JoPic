@@ -381,6 +381,9 @@ const mediaSeries = {
     './images/li-an/li-an-13.JPG',
     './images/li-an/li-an-14.jpg',
     './images/li-an/li-an-15.jpg',
+    './images/li-an/li-an-16.jpg',
+    './images/li-an/li-an-17.jpg',
+    './images/li-an/li-an-18.jpg',
   ],
   ms: [
     './images/ms/ms-1.JPEG',
