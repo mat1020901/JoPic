@@ -320,6 +320,7 @@ const mediaSeries = {
     './images/hx/hx-27.jpg',
     './images/hx/hx-28.jpg',
     './images/hx/hx-29.jpg',
+    './images/hx/hx-30.jpg',
 
   ],
   jt: [
@@ -602,6 +603,7 @@ const mediaSeries = {
     './images/wl/wl-17.jpg',
     './images/wl/wl-18.jpg',
     './images/wl/wl-19.jpg',
+    './images/wl/wl-20.jpg',
   ],
   wq: [
     './images/wq/wq-1.JPEG',
