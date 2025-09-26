@@ -176,6 +176,7 @@ const mediaSeries = {
     './images/esther/esther-23.jpg',
     './images/esther/esther-24.jpg',
     './images/esther/esther-25.jpg',
+    './images/esther/esther-26.jpg',
   ],
   evi: [
     './images/evi/evi-1.JPEG',
