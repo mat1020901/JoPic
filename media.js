@@ -325,12 +325,15 @@ const mediaSeries = {
 
   ],
   jt: [
-    //'./images/jt/jt-1.JPEG',
+    './images/jt/jt-1.JPEG',
     './images/jt/jt-2.JPEG',
-    //'./images/jt/jt-3.JPEG',
-    //'./images/jt/jt-4.JPEG',
-    //'./images/jt/jt-5.JPEG',
-    //'./images/jt/jt-6.JPEG',
+    './images/jt/jt-3.JPEG',
+    './images/jt/jt-4.JPEG',
+    './images/jt/jt-5.JPEG',
+    './images/jt/jt-6.JPEG',
+    './images/jt/jt-7.jpg',
+    './images/jt/jt-8.jpg',
+    './images/jt/jt-9.jpg',
   ],
   kq: [
     './images/kq/kq-1.JPEG',
