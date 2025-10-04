@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Top - JoPic</title>
+  <link rel="stylesheet" href="stylesheet.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      margin: 0;
+      padding: 60px 10px 10px; /* top padding so content not hidden behind button */
+    }
+
+    h1 {
+      text-align: center;
+      margin: 0 0 15px 0;
+      font-size: 1.5rem;
+    }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.2rem;
+      text-transform: capitalize;
+      margin: 25px 0 10px 0;
+    }
+
+    h2::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background-color: #555;
+    }
+
+    /* More compact grid */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /*120px show 3 img/row less px show more img/row */
+      gap: 5px;
+      margin-bottom: 30px;
+    }
+    @media (max-width: 600px) {
+        .gallery {
+            grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+            gap: 4px;
+        }
+    }
+
+    .image-container {
+      position: relative;
+      aspect-ratio: 9/16;
+      overflow: hidden;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.2s, opacity 0.3s;
+    }
+
+    .image-container img,
+    .image-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s, transform 0.2s;
+    }
+
+    /* Selected effect */
+    .image-container.selected {
+      opacity: 0.3;
+      outline: 2px solid #f5bbcc;
+    }
+
+    /* Fixed top button bar */
+    #top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(17, 17, 17, 0.95);
+      backdrop-filter: blur(6px);
+      z-index: 100;
+      padding: 8px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+    }
+
+    #display-btn {
+      padding: 10px 18px;
+      background-color: #f5bbcc;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #display-btn:hover {
+      background-color: #b6465d;
+    }
+
+    #selected-count {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+    #slider-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px;
+        margin-top: 60px;
+        background: rgba(17,17,17,0.9);
+        position: sticky; /* stays visible when scrolling */
+        top: 50px;
+        z-index: 50;
+        }
+
+        #sizeRange {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 150px;
+        height: 6px;
+        background: #f5bbcc;
+        border-radius: 5px;
+        }
+        #sizeValue {
+        font-size: 0.9rem;
+        color: #ccc;
+        min-width: 50px;
+        text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <div id="top-bar">
+    <h1>All Top</h1>
+    <div>
+      <span id="selected-count">0 selected</span>
+      <button id="display-btn">Display</button>
+    </div>
+  </div>
+    <div id="slider-bar">
+        <label for="sizeRange">Image Size:</label>
+        <input type="range" id="sizeRange" min="50" max="120" value="70" step="10">
+        <span id="sizeValue">70px</span>
+    </div>
+
+  <div id="gallery-container"></div>
+
+  <script src="media.js"></script>
+  <script>
+    const galleryContainer = document.getElementById('gallery-container');
+    const countEl = document.getElementById('selected-count');
+    let selectedSet = new Set();
+
+    for (const [name, files] of Object.entries(mediaSeries)) {
+      if (!files.length) continue;
+
+      const section = document.createElement('section');
+      const title = document.createElement('h2');
+      title.textContent = name;
+      section.appendChild(title);
+
+      const gallery = document.createElement('div');
+      gallery.className = 'gallery';
+
+      files.forEach(src => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'image-container';
+        wrapper.dataset.src = src;
+
+        if (src.match(/\.(mp4|mov|avi|webm)$/i)) {
+          const video = document.createElement('video');
+          video.src = src;
+          video.muted = true;
+          video.loop = true;
+          video.autoplay = true;
+          wrapper.appendChild(video);
+        } else {
+          const img = document.createElement('img');
+          img.src = src;
+          wrapper.appendChild(img);
+        }
+
+        wrapper.addEventListener('click', () => {
+          wrapper.classList.toggle('selected');
+          if (wrapper.classList.contains('selected')) {
+            selectedSet.add(src);
+          } else {
+            selectedSet.delete(src);
+          }
+          countEl.textContent = `${selectedSet.size} selected`;
+        });
+
+        gallery.appendChild(wrapper);
+      });
+
+      section.appendChild(gallery);
+      galleryContainer.appendChild(section);
+    }
+
+    document.getElementById('display-btn').addEventListener('click', () => {
+      const selected = Array.from(selectedSet);
+      if (selected.length === 0) {
+        alert('Please select at least one image!');
+        return;
+      }
+      localStorage.setItem('selectedImages', JSON.stringify(selected));
+      window.location.href = 'select-people.html';
+    });
+  </script>
+    <script>
+        const sizeRange = document.getElementById('sizeRange');
+        const sizeValue = document.getElementById('sizeValue');
+
+        // Set initial value for all galleries (default = 70px)
+        document.querySelectorAll('.gallery').forEach(gallery => {
+        gallery.style.gridTemplateColumns = `repeat(auto-fill, minmax(${sizeRange.value}px, 1fr))`;
+        });
+
+        sizeRange.addEventListener('input', (e) => {
+        const minSize = e.target.value;
+        sizeValue.textContent = minSize + 'px';
+        document.querySelectorAll('.gallery').forEach(gallery => {
+            gallery.style.gridTemplateColumns = `repeat(auto-fill, minmax(${minSize}px, 1fr))`;
+        });
+
+        });
+    </script>
+</body>
+</html>

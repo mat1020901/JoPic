@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selected Slideshow - JoPic</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body id="animation-container">
+    <div id="progress-bar-container">
+    <div id="progress-bar"></div>
+    </div>
+
+    <div id="image-container">
+    <img id="image" src="" alt="Slideshow">
+    <video id="video" autoplay playsinline muted>
+        <source src="" type="video/mp4">
+    </video>
+    </div>
+
+    <div id="pause-symbol">||</div>
+
+    <div class="line-button-container">
+        <hr>
+            <a href="all-people.html" class="button-link">All people</a>
+    </div>
+    <div class="line-button-container">
+        <hr>
+            <a href="all-top.html" class="button-link">Select images</a>
+    </div>
+
+    <script>
+    const selected = JSON.parse(localStorage.getItem('selectedImages') || '[]');
+    if (!selected.length) {
+        alert('No images selected.');
+        window.location.href = 'all-top.html';
+    }
+
+    // 🔀 Shuffle function (same logic as all-people.html)
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    // Shuffle the selected images before slideshow starts
+    shuffleArray(selected);
+
+    let imagesAndVideos = selected;
+    let currentIndex = 0;
+    let progressBar = document.getElementById("progress-bar");
+    const imageElement = document.getElementById("image");
+    const videoElement = document.getElementById("video");
+    const pauseSymbol = document.getElementById("pause-symbol");
+    const bodyElement = document.body;
+
+    imageElement.src = imagesAndVideos[currentIndex];
+    let progressInterval;
+    let currentProgress = 0;
+    let paused = false;
+
+    function isVideo(src) {
+        return src.match(/\.(mp4|mov|avi|webm)$/i);
+    }
+
+    function preload(src, callback) {
+        const el = isVideo(src) ? document.createElement('video') : new Image();
+        el.src = src;
+        el.onloadeddata = el.onload = callback;
+    }
+
+    function updateProgressBar() {
+        if (paused) return;
+        currentProgress = 0;
+        progressBar.style.width = "0%";
+
+        if (progressInterval) clearInterval(progressInterval);
+
+        if (isVideo(imagesAndVideos[currentIndex])) {
+        imageElement.style.display = 'none';
+        videoElement.style.display = 'block';
+        videoElement.src = imagesAndVideos[currentIndex];
+        videoElement.play();
+        videoElement.onended = () => {
+            if (!paused) changeImage();
+        };
+        return;
+        }
+
+        progressInterval = setInterval(() => {
+        currentProgress += 1;
+        progressBar.style.width = currentProgress + "%";
+        if (currentProgress >= 100) {
+            clearInterval(progressInterval);
+            if (!paused) changeImage();
+        }
+        }, 30);
+    }
+
+    function changeImage() {
+        if (paused) return;
+        if (videoElement.style.display === 'block') {
+        videoElement.pause();
+        videoElement.currentTime = 0;
+        }
+        currentIndex = (currentIndex + 1) % imagesAndVideos.length;
+        const nextSrc = imagesAndVideos[currentIndex];
+        preload(nextSrc, () => {
+        if (isVideo(nextSrc)) {
+            imageElement.style.display = 'none';
+            videoElement.style.display = 'block';
+            videoElement.src = nextSrc;
+            videoElement.play();
+        } else {
+            imageElement.style.display = 'block';
+            videoElement.style.display = 'none';
+            imageElement.src = nextSrc;
+        }
+        });
+        resetProgressBar();
+    }
+
+    function previousImage() {
+        if (paused) return;
+        if (videoElement.style.display === 'block') {
+        videoElement.pause();
+        videoElement.currentTime = 0;
+        }
+        currentIndex = (currentIndex - 1 + imagesAndVideos.length) % imagesAndVideos.length;
+        const prevSrc = imagesAndVideos[currentIndex];
+        preload(prevSrc, () => {
+        if (isVideo(prevSrc)) {
+            imageElement.style.display = 'none';
+            videoElement.style.display = 'block';
+            videoElement.src = prevSrc;
+            videoElement.play();
+        } else {
+            imageElement.style.display = 'block';
+            videoElement.style.display = 'none';
+            imageElement.src = prevSrc;
+        }
+        });
+        resetProgressBar();
+    }
+
+    function resetProgressBar() {
+        setTimeout(updateProgressBar, 100);
+    }
+
+    function handleTouch(event) {
+        const x = event.touches[0].clientX;
+        const width = window.innerWidth;
+        if (x < width / 3) previousImage();
+        else if (x > width * 0.6) changeImage();
+        else {
+        paused = !paused;
+        if (!paused) updateProgressBar();
+        togglePauseSymbol();
+        }
+    }
+
+    function togglePauseSymbol() {
+        const progressBarContainer = document.getElementById("progress-bar-container");
+        if (paused) {
+        pauseSymbol.style.display = "block";
+        bodyElement.classList.add("paused");
+        progressBarContainer.style.display = "none";
+        if (videoElement.style.display === 'block') videoElement.loop = true;
+        } else {
+        pauseSymbol.style.display = "none";
+        bodyElement.classList.remove("paused");
+        progressBarContainer.style.display = "block";
+        videoElement.loop = false;
+        }
+    }
+
+    document.addEventListener("touchstart", handleTouch);
+    resetProgressBar();
+    </script>
+</body>
+</html>
