@@ -148,7 +148,7 @@ const mediaSeries = {
   ],
   emily: [
     './images/emily/emily-1.jpg',
-    './images/emily/emily-1.jpg',
+    './images/emily/emily-2.jpg',
   ],
   esther: [
     './images/esther/esther-1.JPEG',
