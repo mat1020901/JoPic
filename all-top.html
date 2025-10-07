@@ -86,24 +86,29 @@
       width: 100%;
       background-color: rgba(17, 17, 17, 0.95);
       backdrop-filter: blur(6px);
-      z-index: 200; /* increased from 100 */
+      z-index: 9999; /* ensure it stays above everything */
       padding: 8px 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #333;
-      flex-wrap: wrap; /* ✅ allows buttons to wrap on small screens */
+      flex-wrap: wrap; /* ✅ allows wrapping on smaller screens */
     }
     
     #top-bar h1 {
       margin: 0;
+      flex: 1 1 100%; /* ✅ forces the title to take full width on mobile */
+      text-align: center;
     }
     
     #top-bar div {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
+      justify-content: center;
+      width: 100%; /* ✅ ensures buttons appear below the title if needed */
       gap: 6px;
+      margin-top: 5px;
     }
 
     #display-btn {
