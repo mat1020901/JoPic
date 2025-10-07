@@ -177,13 +177,12 @@
 
         if (src.match(/\.(mp4|mov|avi|webm)$/i)) {
           const video = document.createElement('video');
-          video.src = src;
-          video.preload = 'metadata';
+          video.src = src + '#t=0.1'; // seek to small offset to get first frame
+          video.preload = 'auto';     // must be auto, not metadata
           video.playsInline = true;
-          video.controls = false;
           video.muted = true;
+          video.controls = false;
           video.style.pointerEvents = 'none';
-          // stop autoplay and loop
           wrapper.appendChild(video);
         } else {
           const img = document.createElement('img');
