@@ -86,12 +86,24 @@
       width: 100%;
       background-color: rgba(17, 17, 17, 0.95);
       backdrop-filter: blur(6px);
-      z-index: 100;
+      z-index: 200; /* increased from 100 */
       padding: 8px 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #333;
+      flex-wrap: wrap; /* ✅ allows buttons to wrap on small screens */
+    }
+    
+    #top-bar h1 {
+      margin: 0;
+    }
+    
+    #top-bar div {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
     }
 
     #display-btn {
