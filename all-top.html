@@ -27,6 +27,7 @@
       font-size: 1.2rem;
       text-transform: capitalize;
       margin: 25px 0 10px 0;
+      cursor: pointer;
     }
 
     h2::after {
@@ -34,6 +35,10 @@
       flex: 1;
       height: 1px;
       background-color: #555;
+    }
+    
+    h2:hover {
+      color: #f5bbcc;
     }
 
     /* More compact grid */
@@ -155,68 +160,90 @@
 
   <script src="media.js"></script>
   <script>
-    const galleryContainer = document.getElementById('gallery-container');
-    const countEl = document.getElementById('selected-count');
-    let selectedSet = new Set();
+  const galleryContainer = document.getElementById('gallery-container');
+  const countEl = document.getElementById('selected-count');
+  let selectedSet = new Set();
 
-    for (const [name, files] of Object.entries(mediaSeries)) {
-      if (!files.length) continue;
+  for (const [name, files] of Object.entries(mediaSeries)) {
+    if (!files.length) continue;
 
-      const section = document.createElement('section');
-      const title = document.createElement('h2');
-      title.textContent = name;
-      section.appendChild(title);
+    const section = document.createElement('section');
+    const title = document.createElement('h2');
+    title.textContent = name;
+    section.appendChild(title);
 
-      const gallery = document.createElement('div');
-      gallery.className = 'gallery';
+    const gallery = document.createElement('div');
+    gallery.className = 'gallery';
 
-      files.forEach(src => {
-        const wrapper = document.createElement('div');
-        wrapper.className = 'image-container';
-        wrapper.dataset.src = src;
+    files.forEach(src => {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'image-container';
+      wrapper.dataset.src = src;
 
-        if (src.match(/\.(mp4|mov|avi|webm)$/i)) {
-          const video = document.createElement('video');
-          video.src = src + '#t=0.1'; // seek to small offset to get first frame
-          video.preload = 'auto';     // must be auto, not metadata
-          video.playsInline = true;
-          video.muted = true;
-          video.controls = false;
-          video.style.pointerEvents = 'none';
-          wrapper.appendChild(video);
+      if (src.match(/\.(mp4|mov|avi|webm)$/i)) {
+        const video = document.createElement('video');
+        video.src = src + '#t=0.1'; // show first frame
+        video.preload = 'auto';
+        video.playsInline = true;
+        video.muted = true;
+        video.controls = false;
+        video.style.pointerEvents = 'none';
+        wrapper.appendChild(video);
+      } else {
+        const img = document.createElement('img');
+        img.src = src;
+        img.loading = 'lazy';
+        wrapper.appendChild(img);
+      }
+
+      wrapper.addEventListener('click', () => {
+        wrapper.classList.toggle('selected');
+        if (wrapper.classList.contains('selected')) {
+          selectedSet.add(src);
         } else {
-          const img = document.createElement('img');
-          img.src = src;
-          wrapper.appendChild(img);
+          selectedSet.delete(src);
         }
-
-        wrapper.addEventListener('click', () => {
-          wrapper.classList.toggle('selected');
-          if (wrapper.classList.contains('selected')) {
-            selectedSet.add(src);
-          } else {
-            selectedSet.delete(src);
-          }
-          countEl.textContent = `${selectedSet.size} selected`;
-        });
-
-        gallery.appendChild(wrapper);
+        countEl.textContent = `${selectedSet.size} selected`;
       });
 
-      section.appendChild(gallery);
-      galleryContainer.appendChild(section);
-    }
-
-    document.getElementById('display-btn').addEventListener('click', () => {
-      const selected = Array.from(selectedSet);
-      if (selected.length === 0) {
-        alert('Please select at least one image!');
-        return;
-      }
-      localStorage.setItem('selectedImages', JSON.stringify(selected));
-      window.location.href = 'select-people.html';
+      gallery.appendChild(wrapper);
     });
-  </script>
+
+    // 🧩 NEW FEATURE: Click on name to select/deselect all
+    title.addEventListener('click', () => {
+      const items = gallery.querySelectorAll('.image-container');
+      const allSelected = Array.from(items).every(item => item.classList.contains('selected'));
+
+      items.forEach(item => {
+        const src = item.dataset.src;
+        if (allSelected) {
+          // deselect all
+          item.classList.remove('selected');
+          selectedSet.delete(src);
+        } else {
+          // select all
+          item.classList.add('selected');
+          selectedSet.add(src);
+        }
+      });
+
+      countEl.textContent = `${selectedSet.size} selected`;
+    });
+
+    section.appendChild(gallery);
+    galleryContainer.appendChild(section);
+  }
+
+  document.getElementById('display-btn').addEventListener('click', () => {
+    const selected = Array.from(selectedSet);
+    if (selected.length === 0) {
+      alert('Please select at least one image!');
+      return;
+    }
+    localStorage.setItem('selectedImages', JSON.stringify(selected));
+    window.location.href = 'select-people.html';
+  });
+</script>
     <script>
         const sizeRange = document.getElementById('sizeRange');
         const sizeValue = document.getElementById('sizeValue');
