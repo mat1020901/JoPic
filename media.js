@@ -648,29 +648,6 @@ const mediaSeries = {
     './images/sn/sn-12.jpg',
     './images/sn/sn-13.jpg',
   ],
-  sy: [
-    './images/sy/sy-1.jpg',
-    './images/sy/sy-2.jpg',
-    './images/sy/sy-3.jpg',
-    './images/sy/sy-4.jpg',
-    './images/sy/sy-5.jpg',
-    './images/sy/sy-6.jpg',
-    './images/sy/sy-7.jpg',
-    './images/sy/sy-8.jpg',
-    './images/sy/sy-9.jpg',
-    './images/sy/sy-10.mp4',
-    './images/sy/sy-11.mp4',
-    './images/sy/sy-12.mp4',
-    './images/sy/sy-13.jpg',
-    './images/sy/sy-14.jpg',
-    './images/sy/sy-15.jpg',
-    './images/sy/sy-16.jpg',
-    './images/sy/sy-17.jpg',
-    './images/sy/sy-18.jpg',
-    './images/sy/sy-19.jpg',
-    './images/sy/sy-20.jpg',
-    './images/sy/sy-21.jpg',
-  ],
   cl: [
     './images/cl/cl-1.jpg',
     './images/cl/cl-2.jpg',
@@ -703,10 +680,5 @@ const mediaSeries = {
     './images/cl/cl-29.jpg',
     './images/cl/cl-30.jpg',
   ],
-  /*wq: [
-    './images/wq/wq-1.JPEG',
-    './images/wq/wq-2.JPEG',
-    './images/wq/wq-3.JPEG',
-    './images/wq/wq-4.jpg',
-  ]*/
+  
 };
