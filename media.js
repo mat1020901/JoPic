@@ -383,6 +383,9 @@ const mediaSeries = {
     './images/venus/venus-15.jpg',
     './images/venus/venus-16.jpg',
     './images/venus/venus-17.jpg',
+    './images/venus/venus-18.jpg',
+    './images/venus/venus-19.jpg',
+    './images/venus/venus-20.jpg',
   ],
   wincy: [
     './images/wincy/Wincy-1.MP4',
