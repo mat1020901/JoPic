@@ -364,6 +364,10 @@ const mediaSeries = {
     './images/xt/xt-16.JPEG',
     './images/xt/xt-17.JPEG',
     './images/xt/xt-18.JPEG',
+    './images/xt/xt-19.jpg',
+    './images/xt/xt-20.jpg',
+    './images/xt/xt-21.jpg',
+    './images/xt/xt-22.jpg',
   ],
   venus: [
     './images/venus/venus-1.JPEG',
