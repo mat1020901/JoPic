@@ -440,6 +440,9 @@ const mediaSeries = {
     './images/wincy/Wincy-46.jpg',
     './images/wincy/Wincy-47.jpg',
     './images/wincy/Wincy-48.jpg',
+    './images/wincy/Wincy-49.jpg',
+    './images/wincy/Wincy-50.jpg',
+    './images/wincy/Wincy-51.jpg',
   ],
   sexymimi: [
     './images/sexymimi/sexymimi-1.JPEG',
@@ -732,6 +735,10 @@ const mediaSeries = {
     './images/other/rr-1.GIF',
     './images/other/sr-1.jpg',
     './images/other/sr-2.JPG',
+  ],
+  me: [
+    './images/me/me-1.JPG',
+    './images/me/me-2.JPG',
   ],
   
 };
