@@ -715,8 +715,8 @@ const mediaSeries = {
     './images/other/af-1.GIF',
     './images/other/af-2.GIF',
     './images/other/af-3.GIF',
-    './images/other/af-4.GIF',
-    './images/other/af-5.GIF',
+    './images/other/af-4.JPG',
+    './images/other/af-5.JPG',
 
     './images/other/ch-1.GIF',
     './images/other/ch-2.JPG',
