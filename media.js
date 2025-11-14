@@ -262,6 +262,21 @@ const mediaSeries = {
     './images/kq/kq-31.JPG',
     './images/kq/kq-32.JPG',
   ],
+  ellen:[
+    './images/ellen/ellen-1.jpg',
+    './images/ellen/ellen-2.jpg',
+    './images/ellen/ellen-3.jpg',
+    './images/ellen/ellen-4.jpg',
+    './images/ellen/ellen-5.jpg',
+    './images/ellen/ellen-6.jpg',
+    './images/ellen/ellen-7.jpg',
+    './images/ellen/ellen-8.jpg',
+    './images/ellen/ellen-9.jpg',
+    './images/ellen/ellen-10.jpg',
+    './images/ellen/ellen-11.jpg',
+    './images/ellen/ellen-12.jpg',
+    
+  ],
   xl:[
     './images/xl/xl-1.jpg',
     './images/xl/xl-2.jpg',
