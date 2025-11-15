@@ -748,11 +748,18 @@ const mediaSeries = {
     './images/other/ew-1.GIF',
     './images/other/ew-2.GIF',
     './images/other/ew-3.GIF',
+    './images/other/ew-4.GIF',
     
     './images/other/go-1.GIF',
     
+    './images/other/kp-1.GIF',
+    
     './images/other/ks-1.GIF',
     './images/other/ks-2.GIF',
+    './images/other/ks-3.GIF',
+    './images/other/ks-4.GIF',
+
+    './images/other/mf-1.GIF',
 
     './images/other/mk-1.GIF',
     './images/other/mk-2.GIF',
@@ -796,8 +803,9 @@ const mediaSeries = {
 
     './images/other/shaidenrogue-1.GIF',
     
-    './images/other/sr-1.jpg',
-    './images/other/sr-2.JPG',
+    './images/other/sr-1.GIF',
+    './images/other/sr-2.GIF',
+    './images/other/sr-3.GIF',
   ],
   me: [
     './images/me/me-1.JPG',
