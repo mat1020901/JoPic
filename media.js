@@ -227,6 +227,12 @@ const mediaSeries = {
     './images/li-an/li-an-17.jpg',
     './images/li-an/li-an-18.jpg',
     './images/li-an/li-an-19.jpg',
+    './images/li-an/li-an-20.jpg',
+    './images/li-an/li-an-21.jpg',
+    './images/li-an/li-an-22.jpg',
+    './images/li-an/li-an-23.jpg',
+    './images/li-an/li-an-24.jpg',
+    './images/li-an/li-an-25.jpg',
   ],
   kq: [
     './images/kq/kq-1.JPEG',
@@ -751,6 +757,7 @@ const mediaSeries = {
     './images/other/af-3.GIF',
     './images/other/af-4.JPG',
     './images/other/af-5.JPG',
+    './images/other/af-6.GIF',
 
     './images/other/ch-1.GIF',
     './images/other/ch-2.JPG',
@@ -805,6 +812,8 @@ const mediaSeries = {
     './images/other/other-17.GIF',
     './images/other/other-18.GIF',
     './images/other/other-19.GIF',
+    './images/other/other-20.GIF',
+    './images/other/other-21.GIF',
 
     './images/other/qt-1.GIF',
     './images/other/qt-2.GIF',
@@ -816,6 +825,9 @@ const mediaSeries = {
     
     './images/other/rr-1.GIF',
     './images/other/rr-2.GIF',
+    './images/other/rr-3.GIF',
+    './images/other/rr-4.GIF',
+    './images/other/rr-5.GIF',
 
     './images/other/sf-1.GIF',
     './images/other/sf-2.GIF',
