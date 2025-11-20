@@ -233,6 +233,8 @@ const mediaSeries = {
     './images/li-an/li-an-23.jpg',
     './images/li-an/li-an-24.jpg',
     './images/li-an/li-an-25.jpg',
+    './images/li-an/li-an-26.jpg',
+    './images/li-an/li-an-27.jpg',
   ],
   kq: [
     './images/kq/kq-1.JPEG',
@@ -775,6 +777,7 @@ const mediaSeries = {
     './images/other/ew-2.GIF',
     './images/other/ew-3.GIF',
     './images/other/ew-4.GIF',
+    './images/other/ew-5.GIF',
     
     './images/other/go-1.GIF',
     
