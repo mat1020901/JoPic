@@ -842,9 +842,9 @@ const mediaSeries = {
     './images/other/sr-2.GIF',
     './images/other/sr-3.GIF',
   ],
-  me: [
+  /*me: [
     './images/me/me-1.JPG',
     './images/me/me-2.JPG',
-  ],
+  ],*/
   
 };
