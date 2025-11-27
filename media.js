@@ -793,6 +793,7 @@ const mediaSeries = {
     './images/other/mk-1.GIF',
     './images/other/mk-2.GIF',
     './images/other/mk-3.GIF',
+    './images/other/mk-4.GIF',
 
     './images/other/nd-1.GIF',
     
