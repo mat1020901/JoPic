@@ -95,6 +95,7 @@ const mediaSeries = {
     './images/ym/ym-23.jpg',
     './images/ym/ym-24.jpg',
     './images/ym/ym-25.jpg',
+    './images/ym/ym-26.jpg',
   ],
   evi: [
     './images/evi/evi-1.JPEG',
