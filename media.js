@@ -68,6 +68,8 @@ const mediaSeries = {
     './images/cheryl/Cheryl-65.jpg',
     './images/cheryl/Cheryl-66.jpg',
     './images/cheryl/Cheryl-67.jpg',
+    './images/cheryl/Cheryl-68.jpg',
+    './images/cheryl/Cheryl-69.jpg',
   ],
   ym: [
     './images/ym/ym-1.jpg',
@@ -555,6 +557,7 @@ const mediaSeries = {
     './images/sexymimi/sexymimi-65.jpg',
     './images/sexymimi/sexymimi-66.jpg',
     './images/sexymimi/sexymimi-67.jpg',
+    './images/sexymimi/sexymimi-68.jpg',
   ],
   xv: [
     './images/xv/xv-1.JPEG',
