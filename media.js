@@ -303,7 +303,7 @@ const mediaSeries = {
     './images/ellen/ellen-8.jpg',
     './images/ellen/ellen-9.jpg',
     './images/ellen/ellen-10.jpg',
-    './images/ellen/ellen-11.jpg',
+    './images/ellen/ellen-11.MP4',
     './images/ellen/ellen-12.jpg',
     './images/ellen/ellen-13.jpg',
     './images/ellen/ellen-14.jpg',
