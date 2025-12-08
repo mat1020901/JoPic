@@ -873,6 +873,14 @@ const mediaSeries = {
     './images/other/rh-2.jpg',
     './images/other/rh-3.JPG',
     
+    './images/other/rion-1.GIF',
+    './images/other/rion-2.JPG',
+    './images/other/rion-3.JPG',
+    './images/other/rion-4.JPG',
+    './images/other/rion-5.JPG',
+    './images/other/rion-6.JPG',
+    './images/other/rion-7.JPG',
+    
     './images/other/rr-1.GIF',
     './images/other/rr-2.GIF',
     './images/other/rr-3.GIF',
