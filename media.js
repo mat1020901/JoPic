@@ -800,6 +800,7 @@ const mediaSeries = {
     './images/other/ac-3.JPG',
     './images/other/ac-4.GIF',
     './images/other/ac-5.GIF',
+    './images/other/ac-6.GIF',
     
     './images/other/af-1.GIF',
     './images/other/af-2.GIF',
@@ -821,6 +822,9 @@ const mediaSeries = {
     './images/other/dj-1.GIF',
     
     './images/other/ej-1.GIF',
+    './images/other/ej-2.GIF',
+    './images/other/ej-3.GIF',
+    './images/other/ej-4.GIF',
     
     './images/other/ew-1.GIF',
     './images/other/ew-2.GIF',
@@ -831,6 +835,8 @@ const mediaSeries = {
     './images/other/go-1.GIF',
     
     './images/other/kp-1.GIF',
+    
+    './images/other/kr-1.GIF',
     
     './images/other/ks-1.GIF',
     './images/other/ks-2.GIF',
@@ -872,6 +878,7 @@ const mediaSeries = {
     './images/other/other-24.GIF',
     './images/other/other-25.GIF',
     './images/other/other-26.GIF',
+    './images/other/other-27.GIF',
 
     './images/other/qt-1.GIF',
     './images/other/qt-2.GIF',
@@ -888,6 +895,10 @@ const mediaSeries = {
     './images/other/rion-5.JPG',
     './images/other/rion-6.JPG',
     './images/other/rion-7.JPG',
+
+    './images/other/rlb-1.GIF',
+    './images/other/rlb-2.GIF',
+    './images/other/rlb-3.GIF',
     
     './images/other/rr-1.GIF',
     './images/other/rr-2.GIF',
@@ -914,6 +925,8 @@ const mediaSeries = {
     './images/other/sr-1.GIF',
     './images/other/sr-2.GIF',
     './images/other/sr-3.GIF',
+
+    './images/other/sybil-1.GIF',
   ],
   /*me: [
     './images/me/me-1.JPG',
