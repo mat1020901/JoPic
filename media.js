@@ -907,7 +907,7 @@ const mediaSeries = {
     './images/other/shemale-5.GIF',
     './images/other/shemale-6.GIF',
     './images/other/shemale-7.GIF',
-    './images/other/shemale-8.GIF',
+    './images/other/shemale-8.JPG',
 
     './images/other/slemgem-1.GIF',
     
