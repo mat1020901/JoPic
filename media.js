@@ -932,6 +932,9 @@ const mediaSeries = {
     './images/other/ew-5.GIF',
     
     './images/other/go-1.GIF',
+
+    './images/other/h-1.JPG',
+    './images/other/h-2.JPG',
     
     './images/other/kp-1.GIF',
     
@@ -979,6 +982,7 @@ const mediaSeries = {
     './images/other/other-26.GIF',
     './images/other/other-27.GIF',
     './images/other/other-28.GIF',
+    './images/other/other-29.GIF',
 
     './images/other/qt-1.GIF',
     './images/other/qt-2.GIF',
@@ -1004,6 +1008,10 @@ const mediaSeries = {
     './images/other/rr-3.GIF',
     './images/other/rr-4.GIF',
     './images/other/rr-5.GIF',
+    './images/other/rr-6.jpg',
+    './images/other/rr-7.jpg',
+    './images/other/rr-8.jpg',
+    './images/other/rr-9.JPG',
 
     './images/other/sf-1.GIF',
     './images/other/sf-2.GIF',
