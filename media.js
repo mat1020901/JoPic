@@ -451,6 +451,9 @@ const mediaSeries = {
     './images/xt/xt-21.jpg',
     './images/xt/xt-22.jpg',
   ],
+  wq:[
+    './images/wq/wq-1.jpg',
+  ],
   ddaytinn:[
     './images/ddaytinn/ddaytinn-1.jpg',
     './images/ddaytinn/ddaytinn-2.jpg',
