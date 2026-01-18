@@ -851,6 +851,7 @@ const mediaSeries = {
     './images/wj/wj-10.jpg',
     './images/wj/wj-11.jpg',
     './images/wj/wj-12.jpg',
+    './images/wj/wj-13.jpg',
   ],
   sn: [
     './images/sn/sn-1.jpg',
