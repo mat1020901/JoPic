@@ -946,11 +946,19 @@ const mediaSeries = {
     './images/other/kp-1.GIF',
     
     './images/other/kr-1.GIF',
+    './images/other/kr-1.JPG',
+    './images/other/kr-2.JPG',
+    './images/other/kr-3.JPG',
     
     './images/other/ks-1.GIF',
     './images/other/ks-2.GIF',
     './images/other/ks-3.GIF',
     './images/other/ks-4.GIF',
+
+    './images/other/ll-1.GIF',
+    './images/other/ll-2.GIF',
+    './images/other/ll-3.GIF',
+    './images/other/ll-4.GIF',
 
     './images/other/mf-1.GIF',
 
