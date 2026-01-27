@@ -1002,6 +1002,12 @@ const mediaSeries = {
     './images/other/qt-1.GIF',
     './images/other/qt-2.GIF',
     './images/other/qt-3.GIF',
+
+    './images/other/reislin-1.WEBP',
+    './images/other/reislin-2.WEBP',
+    './images/other/reislin-3.JPG',
+    './images/other/reislin-4.JPG',
+    './images/other/reislin-5.JPG',
     
     './images/other/rh-1.JPG',
     './images/other/rh-2.jpg',
