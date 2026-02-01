@@ -633,6 +633,8 @@ const mediaSeries = {
     './images/natthamol/natthamol-21.jpg',
     './images/natthamol/natthamol-22.jpg',
     './images/natthamol/natthamol-23.jpg',
+    './images/natthamol/natthamol-24.jpg',
+    './images/natthamol/natthamol-25.jpg',
   ],
   sexymimi: [
     './images/sexymimi/sexymimi-1.JPEG',
