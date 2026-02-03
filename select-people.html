@@ -17,7 +17,11 @@
         <source src="" type="video/mp4">
     </video>
     </div>
-
+    <div class="speed-control">
+            <button id="decelerate">−</button>
+            <span class="divider"></span>
+            <button id="accelerate">+</button>
+    </div>
     <div id="pause-symbol">||</div>
 
     <div class="line-button-container">
@@ -60,6 +64,17 @@
     let currentProgress = 0;
     let paused = false;
 
+    let speed = 30;
+    
+    document.getElementById("accelerate").addEventListener("click",()=>{
+        speed-=10;
+        resetProgressBar();
+    });
+    document.getElementById("decelerate").addEventListener("click",()=>{
+        speed+=10;
+        resetProgressBar();
+    });    
+
     function isVideo(src) {
         return src.match(/\.(mp4|mov|avi|webm)$/i);
     }
@@ -95,7 +110,7 @@
             clearInterval(progressInterval);
             if (!paused) changeImage();
         }
-        }, 50);
+        }, speed);
     }
 
     function changeImage() {
@@ -175,7 +190,8 @@
         }
     }
 
-    document.addEventListener("touchstart", handleTouch);
+    const imageContainer = document.getElementById('image-container');
+    imageContainer.addEventListener('touchstart', handleTouch);
     resetProgressBar();
     </script>
 </body>
