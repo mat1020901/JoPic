@@ -16,6 +16,11 @@
             <source src="" type="video/mp4">
         </video>
     </div>
+    <div class="speed-control">
+            <button id="decelerate">−</button>
+            <span class="divider"></span>
+            <button id="accelerate">+</button>
+    </div>
     <div id="pause-symbol">||</div> <!-- Pause symbol -->
 
     <div class="line-button-container">
@@ -1046,6 +1051,17 @@
         let progressInterval;
         let currentProgress = 0;
         let paused = false;
+
+        let speed = 30;
+    
+        document.getElementById("accelerate").addEventListener("click",()=>{
+            speed-=10;
+            resetProgressBar();
+        });
+        document.getElementById("decelerate").addEventListener("click",()=>{
+            speed+=10;
+            resetProgressBar();
+        });
     
         function updateProgressBar() {
             if (paused) return;
@@ -1076,7 +1092,7 @@
                     clearInterval(progressInterval);
                     if (!paused) changeImage();
                 }
-            }, 30);
+            }, speed);
         }
     
         function preloadImage(src, callback) {
@@ -1187,7 +1203,8 @@
         }
     
         // Event listeners
-        document.addEventListener("touchstart", handleTouch);
+        const imageContainer = document.getElementById('image-container');
+        imageContainer.addEventListener('touchstart', handleTouch);
     
         // Initialize the slideshow
         resetProgressBar();
