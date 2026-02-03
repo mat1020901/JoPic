@@ -68,6 +68,36 @@ body.paused {
     display: none; /* Initially hide the video */
 }
 
+.speed-control {
+    display: flex;
+    align-items: center;
+    background: rgba(34, 34, 34, 0.9);
+    backdrop-filter: blur(6px);
+    border-radius: 999px;
+    padding: 1px;
+}
+
+.speed-control button {
+    width: 60px;
+    height: 36px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.speed-control button:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.divider {
+    width: 1px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
 .manga-container {
     display: flex;
     flex-wrap: wrap;
