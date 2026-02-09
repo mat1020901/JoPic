@@ -405,7 +405,8 @@
         }
     
         // Event listeners
-        document.addEventListener("touchstart", handleTouch);
+        const imageContainer = document.getElementById('image-container');
+        imageContainer.addEventListener('touchstart', handleTouch);
     
         // Initialize the slideshow
         resetProgressBar();
