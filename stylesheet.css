@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    height: 200vh;
+    
     background-color: black;
     overflow-y: auto;
     flex-direction: column;
