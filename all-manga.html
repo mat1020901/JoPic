@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JoPic</title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="../stylesheet.css">
 </head>
 <body id="animation-container">
     <div id="progress-bar-container">
@@ -13,13 +13,14 @@
     <div id="image-container">
         <img id="image" src="./images/manga/Baito-gambaru/img-1.jpg" alt="Image 1">
     </div>
+    <div id="pause-symbol">||</div> <!-- Pause symbol -->
 
     <div class="line-button-container">
         <hr>
-            <a href="all-manga.html" class="button-link">All manga</a>
+            <a href="./all-manga.html" class="button-link">All manga</a>
     </div>
     <div class="manga-container">
-        <a href="./manga-html/Baito-gambaru.html">
+         <a href="./manga-html/Baito-gambaru.html">
             <img src="./images/manga/Baito-gambaru/img-1.jpg" alt="Image 1">
         </a>
         <a href="./manga-html/Quetzalcoatl-no-nichijou.html">
@@ -41,23 +42,9 @@
 
     <div class="line-button-container">
         <hr>
-            <a href="all-people.html" class="button-link">All people</a>
-        
+            <a href="./all-people.html" class="button-link">All people</a>
     </div>
-    <div class="people-container">
-        <a href="./index.html">
-            <img src="./images/cheryl/Cheryl-1.JPEG" alt="Image 1">
-        </a>
-        <a href="./people-html/hx.html">
-            <img src="./images/hx/hx-9.JPG" alt="Image 2">
-        </a>
-        <a href="./people-html/evi.html">
-            <img src="./images/evi/evi-34.JPEG" alt="Image 3">
-        </a>
-        <a href="./people-html/kq.html">
-            <img src="./images/kq/kq-12.jpg" alt="Image 4">
-        </a>
-    </div>
+    
     <script>
         const images = [
             './images/manga/Baito-gambaru/img-1.jpg',
@@ -247,7 +234,7 @@
 
 
         ];
-    
+
         let currentIndex = 0;
         let progressBar = document.getElementById("progress-bar");
         const imageElement = document.getElementById("image");
@@ -337,15 +324,21 @@
 
         function togglePauseSymbol() {
             const progressBarContainer = document.getElementById("progress-bar-container");
-
+    
             if (paused) {
                 pauseSymbol.style.display = "block";
                 bodyElement.classList.add("paused");
                 progressBarContainer.style.visibility = "hidden";
+    
+                if (videoElement.style.display === 'block') {
+                    videoElement.loop = true;
+                }
             } else {
                 pauseSymbol.style.display = "none";
                 bodyElement.classList.remove("paused");
                 progressBarContainer.style.visibility = "visible";
+    
+                videoElement.loop = false;
             }
         }
 
