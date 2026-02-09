@@ -189,15 +189,21 @@
 
         function togglePauseSymbol() {
             const progressBarContainer = document.getElementById("progress-bar-container");
-
+    
             if (paused) {
                 pauseSymbol.style.display = "block";
                 bodyElement.classList.add("paused");
-                progressBarContainer.style.display = "none";
+                progressBarContainer.style.visibility = "hidden";
+    
+                if (videoElement.style.display === 'block') {
+                    videoElement.loop = true;
+                }
             } else {
                 pauseSymbol.style.display = "none";
                 bodyElement.classList.remove("paused");
-                progressBarContainer.style.display = "block";
+                progressBarContainer.style.visibility = "visible";
+    
+                videoElement.loop = false;
             }
         }
 
