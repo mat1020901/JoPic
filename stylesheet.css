@@ -25,7 +25,7 @@ body.paused {
     width: 80%;
     height: 5px;
     background-color: #333333;
-    position: fixed;
+    position: relative;
     margin-top: 5px;
     margin-bottom:5px;
     border-radius: 10px;
