@@ -942,6 +942,9 @@ const mediaSeries = {
     './images/other/ch-8.JPG',
     './images/other/ch-9.JPG',
 
+    './images/other/dick-1.JPG',
+    './images/other/dick-2.JPG',
+
     './images/other/dj-1.GIF',
     
     './images/other/ej-1.GIF',
