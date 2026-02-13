@@ -602,6 +602,7 @@ const mediaSeries = {
     './images/wl/wl-23.JPG',
     './images/wl/wl-24.JPG',
     './images/wl/wl-25.mp4',
+    './images/wl/wl-26.jpg',
   ],
   hx: [
     './images/hx/hx-1.JPG',
