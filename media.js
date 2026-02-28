@@ -356,6 +356,12 @@ const mediaSeries = {
     './images/li-an/li-an-28.jpg',
     './images/li-an/li-an-29.jpg',
     './images/li-an/li-an-30.jpg',
+    './images/li-an/li-an-31.jpg',
+    './images/li-an/li-an-32.jpg',
+    './images/li-an/li-an-33.jpg',
+    './images/li-an/li-an-34.jpg',
+    './images/li-an/li-an-35.jpg',
+    './images/li-an/li-an-36.jpg',
   ],
   doris: [
     './images/doris/doris-1.jpg',
@@ -510,6 +516,7 @@ const mediaSeries = {
     './images/xl/xl-3.jpg',
     './images/xl/xl-4.jpg',
     './images/xl/xl-5.jpg',
+    './images/xl/xl-6.jpg',
   ],
   ym: [
     './images/ym/ym-1.jpg',
@@ -699,6 +706,7 @@ const mediaSeries = {
     './images/sn/sn-11.jpg',
     './images/sn/sn-12.jpg',
     './images/sn/sn-13.jpg',
+    './images/sn/sn-14.jpg',
   ],
   emily: [
     './images/emily/emily-1.jpg',
