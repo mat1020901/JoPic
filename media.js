@@ -570,6 +570,7 @@ const mediaSeries = {
     './images/ym/ym-24.jpg',
     './images/ym/ym-25.jpg',
     './images/ym/ym-26.jpg',
+    './images/ym/ym-27.jpg',
   ],
   esther: [
     './images/esther/esther-1.JPEG',
