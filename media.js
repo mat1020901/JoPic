@@ -324,6 +324,11 @@ const mediaSeries = {
     './images/ddaytinn/ddaytinn-81.jpg',
     './images/ddaytinn/ddaytinn-82.jpg',
     './images/ddaytinn/ddaytinn-83.jpg',
+    './images/ddaytinn/ddaytinn-84.jpg',
+    './images/ddaytinn/ddaytinn-85.jpg',
+    './images/ddaytinn/ddaytinn-86.jpg',
+    './images/ddaytinn/ddaytinn-87.jpg',
+    './images/ddaytinn/ddaytinn-88.jpg',
   ],
   lian: [
     './images/li-an/li-an-1.jpeg',
