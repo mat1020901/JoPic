@@ -485,6 +485,7 @@ const mediaSeries = {
     './images/wincy/Wincy-74.jpg',
     './images/wincy/Wincy-75.jpg',
     './images/wincy/Wincy-76.jpg',
+    './images/wincy/Wincy-77.jpg',
   ],
   kq: [
     './images/kq/kq-1.JPEG',
