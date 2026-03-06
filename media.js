@@ -367,6 +367,8 @@ const mediaSeries = {
     './images/li-an/li-an-34.jpg',
     './images/li-an/li-an-35.jpg',
     './images/li-an/li-an-36.jpg',
+    './images/li-an/li-an-37.jpg',
+    './images/li-an/li-an-38.jpg',
   ],
   doris: [
     './images/doris/doris-1.jpg',
