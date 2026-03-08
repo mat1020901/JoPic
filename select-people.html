@@ -79,18 +79,12 @@
         return src.match(/\.(mp4|mov|avi|webm)$/i);
     }
 
-    function preload(src, callback) {
-        if (isVideo(src)) {
-            const el = document.createElement('video');
-            el.preload = "auto";
-            el.src = src;
-            el.onloadeddata = callback;
-        } else {
-            const el = new Image();
-            el.src = src;
-            el.onload = callback;
+    function preloadImage(src, callback) {
+            const img = new Image();
+            img.src = src;
+            img.onload = callback;
         }
-    }
+    
 
     function updateProgressBar() {
         if (paused) return;
