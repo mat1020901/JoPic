@@ -124,9 +124,13 @@
         preload(nextSrc, () => {
         if (isVideo(nextSrc)) {
             imageElement.style.display = 'none';
-            videoElement.style.display = 'block';
+        
             videoElement.src = nextSrc;
-            videoElement.play();
+        
+            videoElement.onloadeddata = () => {
+                videoElement.style.display = 'block';
+                videoElement.play();
+            };
         } else {
             imageElement.style.display = 'block';
             videoElement.style.display = 'none';
