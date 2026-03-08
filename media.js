@@ -967,6 +967,13 @@ const mediaSeries = {
     './images/cl/cl-30.jpg',
   ],
   other: [
+    './images/other/aa-1.gif',
+    './images/other/aa-2.gif',
+    './images/other/aa-3.gif',
+    './images/other/aa-4.gif',
+    './images/other/aa-5.gif',
+    './images/other/aa-6.gif',
+    
     './images/other/ac-1.GIF',
     './images/other/ac-2.GIF',
     './images/other/ac-3.JPG',
