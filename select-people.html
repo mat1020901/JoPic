@@ -75,18 +75,15 @@
         resetProgressBar();
     });    
 
+    function isVideo(src) {
+        return src.match(/\.(mp4|mov|avi|webm)$/i);
+    }
+
     function preload(src, callback) {
         const el = isVideo(src) ? document.createElement('video') : new Image();
         el.src = src;
         el.onloadeddata = el.onload = callback;
     }
-
-    function preloadImage(src, callback) {
-            const img = new Image();
-            img.src = src;
-            img.onload = callback;
-        }
-    
 
     function updateProgressBar() {
         if (paused) return;
