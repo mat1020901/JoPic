@@ -75,8 +75,10 @@
         resetProgressBar();
     });    
 
-    function isVideo(src) {
-        return src.match(/\.(mp4|mov|avi|webm)$/i);
+    function preload(src, callback) {
+        const el = isVideo(src) ? document.createElement('video') : new Image();
+        el.src = src;
+        el.onloadeddata = el.onload = callback;
     }
 
     function preloadImage(src, callback) {
@@ -116,28 +118,24 @@
 
     function changeImage() {
         if (paused) return;
-
         if (videoElement.style.display === 'block') {
-            videoElement.pause();
-            videoElement.currentTime = 0;
+        videoElement.pause();
+        videoElement.currentTime = 0;
         }
-
         currentIndex = (currentIndex + 1) % imagesAndVideos.length;
         const nextSrc = imagesAndVideos[currentIndex];
-
-        preloadImage(nextSrc, () => {
-            if (isVideo(nextSrc)) {
-                imageElement.style.display = 'none';
-                videoElement.style.display = 'block';
-                videoElement.src = nextSrc;
-                videoElement.play();
-            } else {
-                imageElement.style.display = 'block';
-                videoElement.style.display = 'none';
-                imageElement.src = nextSrc;
-            }
+        preload(nextSrc, () => {
+        if (isVideo(nextSrc)) {
+            imageElement.style.display = 'none';
+            videoElement.style.display = 'block';
+            videoElement.src = nextSrc;
+            videoElement.play();
+        } else {
+            imageElement.style.display = 'block';
+            videoElement.style.display = 'none';
+            imageElement.src = nextSrc;
+        }
         });
-
         resetProgressBar();
     }
 
