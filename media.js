@@ -967,12 +967,12 @@ const mediaSeries = {
     './images/cl/cl-30.jpg',
   ],
   other: [
-    './images/other/aa-1.gif',
-    './images/other/aa-2.gif',
-    './images/other/aa-3.gif',
-    './images/other/aa-4.gif',
-    './images/other/aa-5.gif',
-    './images/other/aa-6.gif',
+    './images/other/aa-1.mp4',
+    './images/other/aa-2.mp4',
+    './images/other/aa-3.mp4',
+    './images/other/aa-4.mp4',
+    './images/other/aa-5.mp4',
+    './images/other/aa-6.mp4',
     
     './images/other/ac-1.GIF',
     './images/other/ac-2.GIF',
