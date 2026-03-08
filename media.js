@@ -1011,6 +1011,9 @@ const mediaSeries = {
 
     './images/other/h-1.JPG',
     './images/other/h-2.JPG',
+
+    './images/other/jk-1.gif',
+    './images/other/jk-2.gif',
     
     './images/other/kp-1.GIF',
     
