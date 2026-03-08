@@ -193,26 +193,7 @@
     
                 videoElement.loop = false;
             }
-        }
-
-    const preloadedVideos = [];
-
-    function preloadVideos(slides) {
-        slides.forEach(src => {
-            if (src.match(/\.(mp4|mov|avi|webm)$/i)) {
-                const vid = document.createElement('video');
-                vid.src = src;
-                vid.preload = "auto";
-                vid.muted = true;       // prevent autoplay issues
-                vid.playsInline = true; // mobile support
-                preloadedVideos.push(vid);
-            }
-        });
     }
-
-    window.addEventListener('load', () => {
-        preloadVideos(slides);
-    });
 
     const imageContainer = document.getElementById('image-container');
     imageContainer.addEventListener('touchstart', handleTouch);
