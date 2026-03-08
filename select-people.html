@@ -80,9 +80,21 @@
     }
 
     function preload(src, callback) {
-        const el = isVideo(src) ? document.createElement('video') : new Image();
-        el.src = src;
-        el.onloadeddata = el.onload = callback;
+        if (isVideo(src)) {
+            const el = document.createElement('video');
+            el.preload = "auto";
+            el.src = src;
+            el.onloadeddata = callback;
+        } else {
+            const el = new Image();
+            el.src = src;
+            el.onload = callback;
+        }
+    }
+
+    function preloadNext() {
+        const nextIndex = (currentIndex + 1) % imagesAndVideos.length;
+        preload(imagesAndVideos[nextIndex], () => {});
     }
 
     function updateProgressBar() {
@@ -171,7 +183,7 @@
         const x = event.touches[0].clientX;
         const width = window.innerWidth;
         if (x < width / 3) previousImage();
-        else if (x > width * 0.6) changeImage();
+        else if (x > width * 0.6) changeImage(); preloadNext();
         else {
         paused = !paused;
         if (!paused) updateProgressBar();
