@@ -1039,6 +1039,11 @@ const mediaSeries = {
     './images/other/ll-3.GIF',
     './images/other/ll-4.GIF',
 
+    './images/other/maria-1.gif',
+    './images/other/maria-2.gif',
+    './images/other/maria-3.gif',
+    './images/other/maria-4.gif',
+    
     './images/other/mf-1.GIF',
 
     './images/other/mk-1.GIF',
@@ -1142,6 +1147,7 @@ const mediaSeries = {
     './images/other/sv-7.gif',
     './images/other/sv-8.gif',
     './images/other/sv-9.gif',
+    './images/other/sv-10.gif',
 
     './images/other/sybil-1.GIF',
 
