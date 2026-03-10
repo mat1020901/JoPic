@@ -1155,6 +1155,12 @@ const mediaSeries = {
     './images/other/tb-2.GIF',
     './images/other/tb-3.GIF',
     './images/other/tb-4.GIF',
+
+    './images/other/vn-1.gif',
+    './images/other/vn-2.gif',
+    './images/other/vn-3.gif',
+    './images/other/vn-4.gif',
+    './images/other/vn-5.gif',
   ],
   /*me: [
     './images/me/me-1.JPG',
