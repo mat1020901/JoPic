@@ -75,10 +75,6 @@
         resetProgressBar();
     });    
 
-    function isVideo(src) {
-        return src.match(/\.(mp4|mov|avi|webm)$/i);
-    }
-
     function preload(src, callback) {
         const el = isVideo(src) ? document.createElement('video') : new Image();
         el.src = src;
@@ -193,6 +189,14 @@
     
                 videoElement.loop = false;
             }
+    }
+
+    /*function isVideo(src) {
+        return src.match(/\.(mp4|mov|avi|webm)$/i);
+    }*/
+
+    function isVideo(src) {
+            return src.endsWith('.mp4') || src.endsWith('.MP4') || src.endsWith('.mov') || src.endsWith('.avi');
     }
 
     const imageContainer = document.getElementById('image-container');
