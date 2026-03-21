@@ -91,7 +91,6 @@
         if (isVideo(imagesAndVideos[currentIndex])) {
         imageElement.style.display = 'none';
         videoElement.style.display = 'block';
-        videoElement.src = imagesAndVideos[currentIndex];
         videoElement.play();
         videoElement.onended = () => {
             if (!paused) changeImage();
