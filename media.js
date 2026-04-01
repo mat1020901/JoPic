@@ -493,6 +493,9 @@ const mediaSeries = {
     './images/kq/kq-30.jpg',
     './images/kq/kq-31.JPG',
     './images/kq/kq-32.JPG',
+    './images/kq/kq-33.mp4',
+    './images/kq/kq-34.jpg',
+    './images/kq/kq-35.jpg',
   ],
   xl:[
     './images/xl/xl-1.jpg',
