@@ -629,6 +629,15 @@ const mediaSeries = {
   wq:[
     './images/wq/wq-1.jpg',
   ],
+  hs:[
+    './images/hs/hs-1.jpg',
+    './images/hs/hs-2.jpg',
+    './images/hs/hs-3.jpg',
+    './images/hs/hs-4.jpg',
+    './images/hs/hs-5.jpg',
+    './images/hs/hs-6.jpg',
+    './images/hs/hs-7.jpg',
+  ],
   wj: [
     './images/wj/wj-1.jpg',
     './images/wj/wj-2.jpg',
