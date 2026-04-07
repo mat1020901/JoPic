@@ -79,6 +79,7 @@ const mediaSeries = {
     './images/cheryl/Cheryl-76.jpg',
     './images/cheryl/Cheryl-77.jpg',
     './images/cheryl/Cheryl-78.jpg',
+    './images/cheryl/Cheryl-79.jpg',
   ],
   ellen:[
     './images/ellen/ellen-1.jpg',
