@@ -154,6 +154,14 @@ const mediaSeries = {
     './images/ellen/ellen-60.jpg',
     './images/ellen/ellen-61.jpg',
     './images/ellen/ellen-62.jpg',
+    './images/ellen/ellen-63.jpg',
+    './images/ellen/ellen-64.jpg',
+    './images/ellen/ellen-65.jpg',
+    './images/ellen/ellen-66.jpg',
+    './images/ellen/ellen-67.jpg',
+    './images/ellen/ellen-68.jpg',
+    './images/ellen/ellen-69.jpg',
+    './images/ellen/ellen-70.jpg',
   ],
   evi: [
     './images/evi/evi-1.JPEG',
@@ -734,6 +742,7 @@ const mediaSeries = {
     './images/xv/xv-38.jpg',
     './images/xv/xv-39.jpg',
     './images/xv/xv-40.jpg',
+    './images/xv/xv-41.jpg',
   ],
   other: [
     //'./images/other/aa-1.gif',
