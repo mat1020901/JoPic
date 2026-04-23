@@ -766,7 +766,7 @@ const mediaSeries = {
     // './images/other/af-5.JPG',
     // './images/other/af-6.GIF',
 
-    './images/other/bbc-1.jpg',
+    //'./images/other/bbc-1.jpg',
 
     //'./images/other/ch-1.GIF',
     './images/other/ch-2.JPG',
