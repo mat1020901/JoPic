@@ -1074,6 +1074,8 @@ const mediaSeries = {
     './images/venus/venus-18.jpg',
     './images/venus/venus-19.jpg',
     './images/venus/venus-20.jpg',
+    './images/venus/venus-21.jpg',
+    './images/venus/venus-22.jpg',
   ],
   ms: [
     './images/ms/ms-1.JPEG',
