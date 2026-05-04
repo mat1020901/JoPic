@@ -798,6 +798,11 @@ const mediaSeries = {
     // './images/other/af-6.GIF',
 
     //'./images/other/bbc-1.jpg',
+    //'./images/other/bbc-2.jpg',
+    //'./images/other/bbc-3.jpg',
+    //'./images/other/bbc-4.jpg',
+    //'./images/other/bbc-5.jpg',
+    //'./images/other/bbc-6.jpg',
 
     //'./images/other/ch-1.GIF',
     //'./images/other/ch-2.JPG',
@@ -808,9 +813,6 @@ const mediaSeries = {
     //'./images/other/ch-7.JPG',
     //'./images/other/ch-8.JPG',
     //'./images/other/ch-9.JPG',
-
-    //'./images/other/dick-1.JPG',
-    //'./images/other/dick-2.JPG',
 
     //'./images/other/dj-1.GIF',
     
