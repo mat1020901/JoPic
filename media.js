@@ -475,6 +475,7 @@ const mediaSeries = {
     './images/xv/xv-42.jpg',
     './images/xv/xv-43.jpg',
     './images/xv/xv-44.jpg',
+    './images/xv/xv-45.jpg',
   ],
   venus: [
     './images/venus/venus-1.JPEG',
