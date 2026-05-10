@@ -944,6 +944,11 @@ const mediaSeries = {
     './images/doris/doris-36.jpg',
     './images/doris/doris-37.jpg',
     './images/doris/doris-38.jpg',
+    './images/doris/doris-39.jpg',
+    './images/doris/doris-40.jpg',
+    './images/doris/doris-41.jpg',
+    './images/doris/doris-42.jpg',
+    './images/doris/doris-43.jpg',
   ],
   other: [
     //'./images/other/aa-1.gif',
