@@ -1258,9 +1258,5 @@ const mediaSeries = {
     './images/emily/emily-2.jpg',
   ],
   */
-  /*me: [
-    './images/me/me-1.JPG',
-    './images/me/me-2.JPG',
-  ],*/
   
 };
