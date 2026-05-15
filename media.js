@@ -966,6 +966,15 @@ const mediaSeries = {
     './images/doris/doris-42.jpg',
     './images/doris/doris-43.jpg',
   ],
+  wk:[
+    './images/wk/wk-1.jpg',
+    './images/wk/wk-2.jpg',
+    './images/wk/wk-3.jpg',
+    './images/wk/wk-4.jpg',
+    './images/wk/wk-5.jpg',
+    './images/wk/wk-6.jpg',
+    './images/wk/wk-7.jpg',
+  ],
   other: [
     //'./images/other/aa-1.gif',
     //'./images/other/aa-2.gif',
@@ -1182,7 +1191,7 @@ const mediaSeries = {
     //'./images/other/vn-4.gif',
     //'./images/other/vn-5.gif',
   ],
-  /*
+  
   esther: [
     './images/esther/esther-1.JPEG',
     './images/esther/esther-2.JPEG',
@@ -1265,6 +1274,6 @@ const mediaSeries = {
     './images/emily/emily-1.jpg',
     './images/emily/emily-2.jpg',
   ],
-  */
+  
   
 };
