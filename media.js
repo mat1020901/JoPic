@@ -236,6 +236,11 @@ const mediaSeries = {
     './images/kq/kq-33.mp4',
     './images/kq/kq-34.jpg',
     './images/kq/kq-35.jpg',
+    './images/kq/kq-36.jpg',
+    './images/kq/kq-37.jpg',
+    './images/kq/kq-38.jpg',
+    './images/kq/kq-39.jpg',
+    './images/kq/kq-40.jpg',
   ],
   xl:[
     './images/xl/xl-1.jpg',
