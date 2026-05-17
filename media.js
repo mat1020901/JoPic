@@ -509,6 +509,11 @@ const mediaSeries = {
     './images/venus/venus-20.jpg',
     './images/venus/venus-21.jpg',
     './images/venus/venus-22.jpg',
+    './images/venus/venus-23.JPG',
+    './images/venus/venus-24.JPG',
+    './images/venus/venus-25.JPG',
+    './images/venus/venus-26.JPG',
+    './images/venus/venus-27.JPG',
   ],
   ddaytinn:[
     './images/ddaytinn/ddaytinn-1.jpg',
@@ -1099,6 +1104,7 @@ const mediaSeries = {
     './images/other/other-29.GIF',
     './images/other/other-30.JPG',
     './images/other/other-31.jpg',
+    './images/other/other-32.JPG',
 
     './images/other/qt-1.GIF',
     './images/other/qt-2.GIF',
