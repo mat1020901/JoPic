@@ -979,6 +979,7 @@ const mediaSeries = {
     './images/preg/preg-25.JPG',
     './images/preg/preg-26.JPG',
     './images/preg/preg-27.JPG',
+    './images/preg/preg-28.JPG',
   ],
   other: [
     //'./images/other/aa-1.gif',
