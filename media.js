@@ -951,7 +951,7 @@ const mediaSeries = {
     './images/wk/wk-6.jpg',
     './images/wk/wk-7.jpg',
   ],
-  wk:[
+  preg:[
     './images/preg/preg-1.JPG',
     './images/preg/preg-2.JPG',
     './images/preg/preg-3.JPG',
