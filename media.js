@@ -577,6 +577,7 @@ const mediaSeries = {
     './images/ddaytinn/ddaytinn-88.jpg',
     './images/ddaytinn/ddaytinn-89.jpg',
     './images/ddaytinn/ddaytinn-90.jpg',
+    './images/ddaytinn/ddaytinn-91.jpg',
   ],
   evi: [
     './images/evi/evi-1.JPEG',
