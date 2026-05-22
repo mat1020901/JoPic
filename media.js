@@ -812,7 +812,6 @@ const mediaSeries = {
     './images/other/body-3.JPG',
     './images/other/body-4.JPG',
     './images/other/body-5.JPG',
-    './images/other/body-6.JPG',
 
     // https://bukitbintangcallgirl.com/siti/
     './images/other/siti-1.JPG',
