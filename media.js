@@ -804,6 +804,14 @@ const mediaSeries = {
     './images/preg/preg-29.JPG',
     './images/preg/preg-30.JPG',
     './images/preg/preg-31.JPG',
+    './images/preg/preg-32.MP4',
+    './images/preg/preg-33.JPG',
+    './images/preg/preg-34.JPG',
+    './images/preg/preg-35.JPG',
+    './images/preg/preg-36.JPG',
+    './images/preg/preg-37.JPG',
+    './images/preg/preg-38.JPG',
+    './images/preg/preg-39.JPG',
   ],
   other: [
     //body
