@@ -783,7 +783,7 @@ const mediaSeries = {
     './images/preg/preg-8.JPG',
     './images/preg/preg-9.JPG',
     './images/preg/preg-10.JPG',
-    './images/preg/preg-11.JPG',
+    './images/preg/preg-11.JPG', //diane_zu
     './images/preg/preg-12.JPG',
     './images/preg/preg-13.JPG',
     './images/preg/preg-14.JPG',
@@ -805,7 +805,7 @@ const mediaSeries = {
     './images/preg/preg-30.JPG',
     './images/preg/preg-31.JPG',
     './images/preg/preg-32.MP4',
-    './images/preg/preg-33.JPG',
+    './images/preg/preg-33.JPG', //StarfishGoddess112
     './images/preg/preg-34.JPG',
     './images/preg/preg-35.JPG',
     './images/preg/preg-36.JPG',
