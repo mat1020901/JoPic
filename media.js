@@ -916,6 +916,12 @@ const mediaSeries = {
     './images/preg/sg-4.JPG',
     './images/preg/sg-5.JPG',
     './images/preg/sg-6.JPG',
+
+    //Nickmmilf
+    './images/preg/Nickmmlf-1.JPG',
+    './images/preg/Nickmmlf-2.JPG',
+    './images/preg/Nickmmlf-3.JPG',
+    './images/preg/Nickmmlf-4.JPG',
     
     './images/preg/preg-1.JPG',
     './images/preg/preg-2.JPG',
