@@ -683,6 +683,13 @@ const mediaSeries = {
     './images/xt/xt-23.jpg',
     './images/xt/xt-24.jpg',
     './images/xt/xt-25.jpg',
+    './images/xt/xt-26.jpg',
+    './images/xt/xt-27.jpg',
+    './images/xt/xt-28.jpg',
+    './images/xt/xt-29.jpg',
+    './images/xt/xt-30.jpg',
+    './images/xt/xt-31.jpg',
+    './images/xt/xt-32.jpg',
   ],
   wq:[
     './images/wq/wq-1.jpg',
@@ -832,6 +839,8 @@ const mediaSeries = {
     './images/jt/jt-7.jpg',
     './images/jt/jt-8.jpg',
     './images/jt/jt-9.jpg',
+    './images/jt/jt-10.jpg',
+    './images/jt/jt-11.jpg',
   ],
   wk:[
     './images/wk/wk-1.jpg',
