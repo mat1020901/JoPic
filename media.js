@@ -543,6 +543,11 @@ const mediaSeries = {
     './images/ellen/ellen-85.jpg',
     './images/ellen/ellen-86.jpg',
     './images/ellen/ellen-87.jpg',
+    './images/ellen/ellen-88.jpg',
+    './images/ellen/ellen-89.jpg',
+    './images/ellen/ellen-90.jpg',
+    './images/ellen/ellen-91.jpg',
+    './images/ellen/ellen-92.jpg',
   ],
   kq: [
     './images/kq/kq-1.JPEG',
