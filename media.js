@@ -1148,7 +1148,7 @@ const mediaSeries = {
     './images/kw/kw-15.jpg',
     './images/kw/kw-16.jpg',
     './images/kw/kw-17.jpg',
-    './images/kw/kw-18.jpg'
+    './images/kw/kw-18.jpg',
     './images/kw/kw-19.jpg',
     './images/kw/kw-20.jpg',
   ],
