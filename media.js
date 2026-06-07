@@ -393,6 +393,7 @@ const mediaSeries = {
     './images/ddaytinn/ddaytinn-89.jpg',
     './images/ddaytinn/ddaytinn-90.jpg',
     './images/ddaytinn/ddaytinn-91.jpg',
+    './images/ddaytinn/ddaytinn-92.jpg',
   ],
   doris: [
     './images/doris/doris-1.jpg',
