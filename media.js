@@ -439,6 +439,7 @@ const mediaSeries = {
     './images/doris/doris-41.jpg',
     './images/doris/doris-42.jpg',
     './images/doris/doris-43.jpg',
+    './images/doris/doris-44.jpg',
   ],
   evi: [
     './images/evi/evi-1.JPEG',
