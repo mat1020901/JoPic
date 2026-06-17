@@ -954,19 +954,19 @@ const mediaSeries = {
     './images/preg/preg-11.JPG', 
   ],
   other: [
-    //body
-    './images/other/body-1.JPG',
-    './images/other/body-2.JPG',
-    './images/other/body-3.JPG',
-    './images/other/body-4.JPG',
-    './images/other/body-5.JPG',
-
     // https://bukitbintangcallgirl.com/siti/
     './images/other/siti-1.JPG',
     './images/other/siti-2.JPG',
     './images/other/siti-3.JPG',
     './images/other/siti-4.JPG',
     './images/other/siti-5.JPG',
+    
+    //body
+    './images/other/body-1.JPG',
+    './images/other/body-2.JPG',
+    './images/other/body-3.JPG',
+    './images/other/body-4.JPG',
+    './images/other/body-5.JPG',
 
     './images/other/rh-1.JPG',
     './images/other/rh-2.JPG',
