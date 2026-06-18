@@ -1139,7 +1139,12 @@ const mediaSeries = {
     './images/sexymimi/sexymimi-69.jpg',
     './images/sexymimi/sexymimi-70.jpg',
   ],
-  
+  HER:[
+    './images/HER/HER-1.jpg',
+    './images/HER/HER-2.jpg',
+    './images/HER/HER-3.jpg',
+    './images/HER/HER-4.jpg',
+  ],
   kw: [
     './images/kw/kw-1.jpg',
     './images/kw/kw-2.jpg',
