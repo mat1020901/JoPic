@@ -223,6 +223,9 @@ const mediaSeries = {
     './images/ellen/ellen-90.jpg',
     './images/ellen/ellen-91.jpg',
     './images/ellen/ellen-92.jpg',
+    './images/ellen/ellen-93.jpg',
+    './images/ellen/ellen-94.jpg',
+    './images/ellen/ellen-95.jpg',
   ],
   wincy: [
     './images/wincy/Wincy-1.MP4',
