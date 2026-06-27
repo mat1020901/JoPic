@@ -305,6 +305,8 @@ const mediaSeries = {
     './images/wincy/Wincy-75.jpg',
     './images/wincy/Wincy-76.jpg',
     './images/wincy/Wincy-77.jpg',
+    './images/wincy/Wincy-78.jpg',
+    './images/wincy/Wincy-79.jpg',
   ],
   ddaytinn:[
     './images/ddaytinn/ddaytinn-1.jpg',
