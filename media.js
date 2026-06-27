@@ -800,6 +800,8 @@ const mediaSeries = {
     './images/xv/xv-43.jpg',
     './images/xv/xv-44.jpg',
     './images/xv/xv-45.jpg',
+    './images/xv/xv-46.jpg',
+    './images/xv/xv-47.jpg',
   ],
   lian: [
     './images/li-an/li-an-1.jpeg',
