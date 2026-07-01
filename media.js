@@ -1197,6 +1197,10 @@ const mediaSeries = {
     './images/HER/HER-2.jpg',
     './images/HER/HER-3.jpg',
     './images/HER/HER-4.jpg',
+    './images/HER/HER-5.jpg',
+    './images/HER/HER-6.jpg',
+    './images/HER/HER-7.jpg',
+    './images/HER/HER-8.jpg',
   ],
   kw: [
     './images/kw/kw-1.jpg',
@@ -1300,6 +1304,16 @@ const mediaSeries = {
   emily: [
     './images/emily/emily-1.jpg',
     './images/emily/emily-2.jpg',
+  ],
+  girls: [
+    './images/girls/-.jpg',
+    './images/girls/-.jpg',
+    './images/girls/-.jpg',
+    './images/girls/-.jpg',
+    './images/girls/-.jpg',
+    './images/girls/-.jpg',
+    './images/girls/-.jpg',
+    './images/girls/-.jpg',
   ],
   ms: [
     './images/ms/ms-1.JPEG',
