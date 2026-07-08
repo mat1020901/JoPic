@@ -92,6 +92,9 @@ const mediaSeries = {
     './images/cheryl/Cheryl-89.jpg',
     './images/cheryl/Cheryl-90.jpg',
     './images/cheryl/Cheryl-91.jpg',
+    './images/cheryl/Cheryl-92.jpg',
+    './images/cheryl/Cheryl-93.jpg',
+    './images/cheryl/Cheryl-94.jpg',
   ],
   ym: [
     './images/ym/ym-1.jpg',
