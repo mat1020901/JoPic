@@ -909,7 +909,7 @@ const mediaSeries = {
     './images/venus/venus-27.JPG',
   ],
   preg:[
-    //diane_zu
+    /*//diane_zu
     './images/preg/diane_zu_not-1.JPG',
     './images/preg/diane_zu_not-2.JPG',
     './images/preg/diane_zu_not-3.JPG',
@@ -937,7 +937,7 @@ const mediaSeries = {
     './images/preg/diane_zu-13.JPG',
     './images/preg/diane_zu-14.JPG',
     './images/preg/diane_zu-15.JPG',
-    './images/preg/diane_zu-16.JPG',
+    './images/preg/diane_zu-16.JPG',*/
 
     //GlowingGaze
     './images/preg/GlowingGaze-1.JPG',
@@ -946,31 +946,31 @@ const mediaSeries = {
     './images/preg/GlowingGaze-4.JPG',
     './images/preg/GlowingGaze-5.JPG',
     
-    //StarfishGoddess112
+    /*//StarfishGoddess112
     './images/preg/sg-1.JPG',
     './images/preg/sg-2.JPG',
     './images/preg/sg-3.JPG',
     './images/preg/sg-4.JPG',
     './images/preg/sg-5.JPG',
-    './images/preg/sg-6.JPG',
+    './images/preg/sg-6.JPG',*/
 
     //Nickmmilf
     './images/preg/Nickmmlf-1.JPG',
-    './images/preg/Nickmmlf-2.JPG',
+    //'./images/preg/Nickmmlf-2.JPG',
     './images/preg/Nickmmlf-3.JPG',
-    './images/preg/Nickmmlf-4.JPG',
+    //'./images/preg/Nickmmlf-4.JPG',
     
-    './images/preg/preg-1.JPG',
-    './images/preg/preg-2.JPG',
-    './images/preg/preg-3.JPG',
-    './images/preg/preg-4.JPG',
-    './images/preg/preg-5.JPG',
-    './images/preg/preg-6.JPG',
-    './images/preg/preg-7.JPG',
-    './images/preg/preg-8.JPG',
-    './images/preg/preg-9.JPG',
+    //'./images/preg/preg-1.JPG',
+    //'./images/preg/preg-2.JPG',
+    //'./images/preg/preg-3.JPG',
+    //'./images/preg/preg-4.JPG',
+    //'./images/preg/preg-5.JPG',
+    //'./images/preg/preg-6.JPG',
+    //'./images/preg/preg-7.JPG',
+    //'./images/preg/preg-8.JPG',
+    //'./images/preg/preg-9.JPG',
     './images/preg/preg-10.JPG',
-    './images/preg/preg-11.JPG', 
+    //'./images/preg/preg-11.JPG', 
   ],
   other: [
     // https://bukitbintangcallgirl.com/siti/
@@ -980,7 +980,7 @@ const mediaSeries = {
     './images/other/siti-4.JPG',
     './images/other/siti-5.JPG',
 
-    //bbchuntertexas
+    /*//bbchuntertexas
     './images/other/bbchuntertexas/bbchuntertexas-1.JPG',
     './images/other/bbchuntertexas/bbchuntertexas-2.JPG',
     './images/other/bbchuntertexas/bbchuntertexas-3.JPG',
@@ -1016,7 +1016,7 @@ const mediaSeries = {
     './images/other/bbchuntertexas/bbchuntertexas-33.JPG',
     './images/other/bbchuntertexas/bbchuntertexas-34.JPG',
     './images/other/bbchuntertexas/bbchuntertexas-35.JPG',
-    './images/other/bbchuntertexas/bbchuntertexas-36.JPG',
+    './images/other/bbchuntertexas/bbchuntertexas-36.JPG',*/
     
     //body
     './images/other/body-1.JPG',
@@ -1025,42 +1025,42 @@ const mediaSeries = {
     './images/other/body-4.JPG',
     './images/other/body-5.JPG',
 
-    './images/other/rh-1.JPG',
-    './images/other/rh-2.JPG',
-    './images/other/rh-3.JPG',
+    //'./images/other/rh-1.JPG',
+    //'./images/other/rh-2.JPG',
+    //'./images/other/rh-3.JPG',
     
-    './images/other/rion-1.GIF',
-    './images/other/rion-2.JPG',
+    //'./images/other/rion-1.GIF',
+    //'./images/other/rion-2.JPG',
     
     //GIF
-    './images/other/gif-1.GIF',
-    './images/other/gif-2.GIF',
-    './images/other/gif-3.GIF',
-    './images/other/gif-4.GIF',
-    './images/other/gif-5.GIF',
-    './images/other/gif-6.GIF',
-    './images/other/gif-7.GIF',
+    //'./images/other/gif-1.GIF',
+    //'./images/other/gif-2.GIF',
+    //'./images/other/gif-3.GIF',
+    //'./images/other/gif-4.GIF',
+    //'./images/other/gif-5.GIF',
+    //'./images/other/gif-6.GIF',
+    //'./images/other/gif-7.GIF',
     
-    './images/other/ej-1.GIF',
+    //'./images/other/ej-1.GIF',
 
     './images/other/ew-1.GIF',
     './images/other/ew-2.GIF',
     './images/other/ew-3.GIF',
 
-    './images/other/go-1.GIF',
+    //'./images/other/go-1.GIF',
 
     './images/other/kp-1.GIF',
     
-    './images/other/ks-1.GIF',
-    './images/other/ks-2.GIF',
-    './images/other/ks-3.GIF',
+    //'./images/other/ks-1.GIF',
+    //'./images/other/ks-2.GIF',
+    //'./images/other/ks-3.GIF',
 
     './images/other/mk-1.GIF',
-    './images/other/mk-2.GIF',
+    //'./images/other/mk-2.GIF',
     './images/other/mk-3.GIF',
-    './images/other/mk-4.GIF',
+    //'./images/other/mk-4.GIF',
 
-    './images/other/momoha-1.GIF',
+    //'./images/other/momoha-1.GIF',
 
     './images/other/qt-1.GIF',
     './images/other/qt-2.GIF',
@@ -1069,7 +1069,7 @@ const mediaSeries = {
     './images/other/rlb-1.GIF',
     './images/other/rlb-2.GIF',
 
-    './images/other/slemgem-1.GIF',
+    //'./images/other/slemgem-1.GIF',
     
     './images/other/sr-1.GIF',
     
@@ -1078,14 +1078,13 @@ const mediaSeries = {
     './images/other/sv-3.GIF',
     './images/other/sv-4.GIF',
 
-    './images/other/sybil-1.GIF',
+    //'./images/other/sybil-1.GIF',
 
     './images/other/tb-1.GIF',
     './images/other/tb-2.GIF',
     './images/other/tb-3.GIF',
     
-
-    './images/other/vn-1.GIF',
+    //'./images/other/vn-1.GIF',
 
     //Shemale
     './images/other/maria-1.GIF',
@@ -1093,11 +1092,11 @@ const mediaSeries = {
     './images/other/maria-3.GIF',
     './images/other/maria-4.GIF',
 
-    './images/other/shemale-1.JPG',
+    /*'./images/other/shemale-1.JPG',
     './images/other/shemale-2.GIF',
-    './images/other/shemale-3.GIF',
+    './images/other/shemale-3.GIF',*/
     
-    //BBC
+    /*//BBC
     './images/other/bbcgif-1.GIF',
     './images/other/bbcgif-2.GIF',
     './images/other/bbcgif-3.GIF',
@@ -1117,7 +1116,7 @@ const mediaSeries = {
     './images/other/bbc(ToMbZ21)-3.mp4',
     './images/other/bbc(ToMbZ21)-4.mp4',
     './images/other/bbc(ToMbZ21)-5.mp4',
-    './images/other/bbc(ToMbZ21)-6.mp4',
+    './images/other/bbc(ToMbZ21)-6.mp4',*/
 
     //Hentai
     //'./images/other/h-1.JPG',
