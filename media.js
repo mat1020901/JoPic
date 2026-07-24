@@ -612,6 +612,8 @@ const mediaSeries = {
     './images/wk/wk-5.jpg',
     './images/wk/wk-6.jpg',
     './images/wk/wk-7.jpg',
+    './images/wk/wk-8.jpg',
+    './images/wk/wk-9.jpg',
   ],
   xl:[
     './images/xl/xl-1.jpg',
