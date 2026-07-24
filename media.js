@@ -1046,6 +1046,10 @@ const mediaSeries = {
     './images/sexymimi/sexymimi-68.jpg',
     './images/sexymimi/sexymimi-69.jpg',
     './images/sexymimi/sexymimi-70.jpg',
+    './images/sexymimi/sexymimi-71.jpg',
+    './images/sexymimi/sexymimi-72.jpg',
+    './images/sexymimi/sexymimi-73.jpg',
+    './images/sexymimi/sexymimi-74.jpg',
   ],
   preg:[
     /*//diane_zu
