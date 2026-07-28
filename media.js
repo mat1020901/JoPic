@@ -1294,7 +1294,14 @@ const mediaSeries = {
   ],
   AI:[
     './images/ai/cherylAI-1.jpg',
+    './images/ai/cherylAI-2.jpg',
+    './images/ai/jtAI-1.jpg',
+    './images/ai/kqAI-1.jpg',
+    './images/ai/snAI-1.jpg',
+    './images/ai/wjAI-1.jpg',
+    './images/ai/wkAI-1.jpg',
     './images/ai/ymAI-1.jpg',
+    './images/ai/ymAI-2.jpg',
   ],
   /*alison: [
     './images/alison/alison-1.jpg',
