@@ -1292,6 +1292,10 @@ const mediaSeries = {
     './images/girls/pg-3.jpg',
     './images/girls/pg-4.jpg',
   ],
+  AI:[
+    './images/ai/cherylAI-1.jpg',
+    './images/ai/ymAI-1.jpg',
+  ],
   /*alison: [
     './images/alison/alison-1.jpg',
     './images/alison/alison-2.jpg',
