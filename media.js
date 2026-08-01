@@ -1295,6 +1295,7 @@ const mediaSeries = {
   AI:[
     './images/ai/cherylAI-1.jpg',
     './images/ai/cherylAI-2.jpg',
+    './images/ai/cherylAI-3.jpg',
     './images/ai/jtAI-1.jpg',
     './images/ai/kqAI-1.jpg',
     './images/ai/snAI-1.jpg',
