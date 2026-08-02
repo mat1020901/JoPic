@@ -1242,7 +1242,7 @@ const mediaSeries = {
     './images/other/shemale-2.GIF',
     './images/other/shemale-3.GIF',*/
     
-    /*//BBC
+    //BBC
     './images/other/bbcgif-1.GIF',
     './images/other/bbcgif-2.GIF',
     './images/other/bbcgif-3.GIF',
@@ -1256,8 +1256,9 @@ const mediaSeries = {
     './images/other/bbcpic-4.JPG',
     './images/other/bbcpic-5.JPG',
     './images/other/bbcpic-6.JPG',
+    './images/other/bbcpic-7.JPG',
 
-    './images/other/bbc(ToMbZ21)-1.mp4',
+    /*'./images/other/bbc(ToMbZ21)-1.mp4',
     './images/other/bbc(ToMbZ21)-2.mp4',
     './images/other/bbc(ToMbZ21)-3.mp4',
     './images/other/bbc(ToMbZ21)-4.mp4',
