@@ -942,16 +942,6 @@ const mediaSeries = {
     './images/li-an/li-an-38.jpg',
     './images/li-an/li-an-39.jpg',
   ],
-  HER:[
-    './images/HER/HER-1.jpg',
-    './images/HER/HER-2.jpg',
-    './images/HER/HER-3.jpg',
-    './images/HER/HER-4.jpg',
-    './images/HER/HER-5.jpg',
-    './images/HER/HER-6.jpg',
-    './images/HER/HER-7.jpg',
-    './images/HER/HER-8.jpg',
-  ],
   cl: [
     './images/cl/cl-1.jpg',
     './images/cl/cl-2.jpg',
@@ -1378,7 +1368,16 @@ const mediaSeries = {
     './images/yn/yn-2.jpg',
     './images/yn/yn-3.jpg',
   ],
-  
+  HER:[
+    './images/HER/HER-1.jpg',
+    './images/HER/HER-2.jpg',
+    './images/HER/HER-3.jpg',
+    './images/HER/HER-4.jpg',
+    './images/HER/HER-5.jpg',
+    './images/HER/HER-6.jpg',
+    './images/HER/HER-7.jpg',
+    './images/HER/HER-8.jpg',
+  ],
   natthamol:[
     './images/natthamol/natthamol-1.JPG',
     './images/natthamol/natthamol-2.JPG',
