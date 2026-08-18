@@ -901,6 +901,7 @@ const mediaSeries = {
     './images/doris/doris-42.jpg',
     './images/doris/doris-43.jpg',
     './images/doris/doris-44.jpg',
+    './images/doris/doris-45.jpg',
   ],
   lian: [
     './images/li-an/li-an-1.jpeg',
