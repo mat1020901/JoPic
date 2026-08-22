@@ -99,6 +99,7 @@ const mediaSeries = {
     './images/cheryl/Cheryl-96.JPG',
     './images/cheryl/Cheryl-97.JPG',
     './images/cheryl/Cheryl-98.mp4',
+    './images/cheryl/Cheryl-99.jpg',
   ],
   ym: [
     './images/ym/ym-1.jpg',
