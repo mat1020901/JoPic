@@ -316,6 +316,10 @@ const mediaSeries = {
     './images/ellen/ellen-93.jpg',
     './images/ellen/ellen-94.jpg',
     './images/ellen/ellen-95.jpg',
+    './images/ellen/ellen-96.jpg',
+    './images/ellen/ellen-97.jpg',
+    './images/ellen/ellen-98.jpg',
+    './images/ellen/ellen-99.jpg',
   ],
   evi: [
     './images/evi/evi-1.JPEG',
