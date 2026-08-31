@@ -138,6 +138,7 @@ const mediaSeries = {
     './images/ym/ym-34.jpg',
     './images/ym/ym-35.jpg',
     './images/ym/ym-36.jpg',
+    './images/ym/ym-37.jpg',
   ],
   wincy: [
     './images/wincy/Wincy-1.MP4',
