@@ -789,6 +789,7 @@ const mediaSeries = {
     './images/xv/xv-46.jpg',
     './images/xv/xv-47.jpg',
     './images/xv/xv-48.jpg',
+    './images/xv/xv-49.jpg',
   ],
   hs:[
     './images/hs/hs-1.jpg',
