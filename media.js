@@ -626,6 +626,7 @@ const mediaSeries = {
     './images/wk/wk-7.jpg',
     './images/wk/wk-8.jpg',
     './images/wk/wk-9.jpg',
+    './images/wk/wk-10.jpg',
   ],
   xl:[
     './images/xl/xl-1.jpg',
@@ -634,6 +635,10 @@ const mediaSeries = {
     './images/xl/xl-4.jpg',
     './images/xl/xl-5.jpg',
     './images/xl/xl-6.jpg',
+    './images/xl/xl-7.jpg',
+    './images/xl/xl-8.jpg',
+    './images/xl/xl-9.jpg',
+    './images/xl/xl-10.jpg',
   ],
   wl: [
     './images/wl/wl-1.JPEG',
