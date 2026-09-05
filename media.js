@@ -1279,6 +1279,8 @@ const mediaSeries = {
     './images/other/bbcpic-9.JPG',
     './images/other/bbcpic-10.JPG',
 
+    './images/other/bbcvid-1.MP4',
+
     /*'./images/other/bbc(ToMbZ21)-1.mp4',
     './images/other/bbc(ToMbZ21)-2.mp4',
     './images/other/bbc(ToMbZ21)-3.mp4',
