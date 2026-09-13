@@ -620,6 +620,7 @@ const mediaSeries = {
     './images/jt/jt-20.jpg',
     './images/jt/jt-21.jpg',
     './images/jt/jt-22.jpg',
+    './images/jt/jt-23.jpg',
   ],
   wk:[
     './images/wk/wk-1.jpg',
