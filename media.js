@@ -1359,8 +1359,8 @@ const mediaSeries = {
     './images/girls/pg-3.jpg',
     './images/girls/pg-4.jpg',
     
-    './images/wq/wq-1.jpg',
-    './images/xueer/xueer-1.jpg',
+    './images/girls/wq-1.jpg',
+    './images/girls/xueer-1.jpg',
   ],
   
   /*
