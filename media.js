@@ -1184,6 +1184,9 @@ const mediaSeries = {
     './images/other/watermelonshakeXx/watermelonshakeXx-1.JPG',
     './images/other/watermelonshakeXx/watermelonshakeXx-2.JPG',
     './images/other/watermelonshakeXx/watermelonshakeXx-3.JPG',
+    './images/other/watermelonshakeXx/watermelonshakeXx-4.JPG',
+    './images/other/watermelonshakeXx/watermelonshakeXx-5.JPG',
+    './images/other/watermelonshakeXx/watermelonshakeXx-6.JPG',
     
     //body
     //'./images/other/body-1.JPG',
