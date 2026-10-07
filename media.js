@@ -1179,6 +1179,11 @@ const mediaSeries = {
     './images/other/Tierra-Watson/Tierra-Watson-21.JPG',
     './images/other/Tierra-Watson/Tierra-Watson-22.JPG',
     './images/other/Tierra-Watson/Tierra-Watson-23.JPG',
+
+    //watermelonshakeXx
+    './images/other/watermelonshakeXx/watermelonshakeXx-1.JPG',
+    './images/other/watermelonshakeXx/watermelonshakeXx-2.JPG',
+    './images/other/watermelonshakeXx/watermelonshakeXx-3.JPG',
     
     //body
     //'./images/other/body-1.JPG',
