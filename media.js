@@ -683,7 +683,22 @@ const mediaSeries = {
     './images/sexymimi/sexymimi-73.jpg',
     './images/sexymimi/sexymimi-74.jpg',
   ],
-  ebony:[
+  黑皮:[
+    //anabanana8000
+    './images/other/anabanana8000/anabanana-1.JPG',
+    './images/other/anabanana8000/anabanana-2.JPG',
+    './images/other/anabanana8000/anabanana-3.JPG',
+    './images/other/anabanana8000/anabanana-4.JPG',
+    './images/other/anabanana8000/anabanana-5.JPG',
+    './images/other/anabanana8000/anabanana-6.JPG',
+    './images/other/anabanana8000/anabanana-7.JPG',
+    './images/other/anabanana8000/anabanana-8.JPG',
+    './images/other/anabanana8000/anabanana-9.JPG',
+    './images/other/anabanana8000/anabanana-10.JPG',
+    './images/other/anabanana8000/anabanana-11.JPG',
+    './images/other/anabanana8000/anabanana-12.JPG',
+
+    //tierra watson
     './images/other/Tierra-Watson/Tierra-Watson-1.JPG',
     './images/other/Tierra-Watson/Tierra-Watson-2.JPG',
     './images/other/Tierra-Watson/Tierra-Watson-3.JPG',
