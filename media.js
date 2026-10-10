@@ -140,6 +140,7 @@ const mediaSeries = {
     './images/ym/ym-36.jpg',
     './images/ym/ym-37.jpg',
     './images/ym/ym-38.jpg',
+    './images/ym/ym-39.jpg',
   ],
   ellen:[
     './images/ellen/ellen-1.jpg',
