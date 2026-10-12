@@ -300,6 +300,7 @@ const mediaSeries = {
     './images/xv/xv-48.jpg',
     './images/xv/xv-49.jpg',
     './images/xv/xv-50.jpg',
+    './images/xv/xv-51.jpg',
   ],
   venus: [
     './images/venus/venus-1.JPEG',
