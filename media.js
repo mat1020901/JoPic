@@ -1494,6 +1494,7 @@ const mediaSeries = {
     './images/ms/ms-2.JPEG',
     //'./images/ms/ms-3.JPEG',
     './images/ms/ms-4.mp4',
+    './images/ms/ms-5.jpg',
   ],
   yn: [
     './images/yn/yn-1.jpg',
