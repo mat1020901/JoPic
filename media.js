@@ -690,6 +690,11 @@ const mediaSeries = {
     './images/sexymimi/sexymimi-76.jpg',
     './images/sexymimi/sexymimi-77.jpg',
     './images/sexymimi/sexymimi-78.mp4',
+    './images/sexymimi/sexymimi-79.jpg',
+    './images/sexymimi/sexymimi-80.jpg',
+    './images/sexymimi/sexymimi-81.jpg',
+    './images/sexymimi/sexymimi-82.jpg',
+    './images/sexymimi/sexymimi-83.jpg',
   ],
   黑皮:[
     //anabanana8000
