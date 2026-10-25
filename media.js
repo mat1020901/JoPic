@@ -249,6 +249,7 @@ const mediaSeries = {
     './images/ellen/ellen-103.jpg',
     './images/ellen/ellen-104.jpg',
     './images/ellen/ellen-105.jpg',
+    './images/ellen/ellen-106.jpg',
   ],
   xv: [
     './images/xv/xv-1.JPEG',
