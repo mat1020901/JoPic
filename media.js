@@ -338,6 +338,7 @@ const mediaSeries = {
     './images/xl/xl-17.jpg',
     './images/xl/xl-18.jpg',
     './images/xl/xl-19.jpg',
+    './images/xl/xl-20.jpg',
   ],
   ms: [
     './images/ms/ms-1.JPEG',
