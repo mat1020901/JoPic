@@ -625,6 +625,10 @@ const mediaSeries = {
     './images/ddaytinn/ddaytinn-91.jpg',
     './images/ddaytinn/ddaytinn-92.jpg',
     './images/ddaytinn/ddaytinn-93.jpg',
+    './images/ddaytinn/ddaytinn-94.jpg',
+    './images/ddaytinn/ddaytinn-95.jpg',
+    './images/ddaytinn/ddaytinn-96.jpg',
+    './images/ddaytinn/ddaytinn-97.jpg',
   ],
   HER:[
     './images/HER/HER-1.jpg',
